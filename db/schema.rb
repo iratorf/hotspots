@@ -11,10 +11,53 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140923171308) do
+ActiveRecord::Schema.define(version: 20140923235133) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "businesses", force: true do |t|
+    t.string   "name",        null: false
+    t.string   "street",      null: false
+    t.string   "city",        null: false
+    t.string   "state",       null: false
+    t.string   "zipcode",     null: false
+    t.text     "description"
+    t.integer  "price_range"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "businesses", ["city"], name: "index_businesses_on_city", using: :btree
+  add_index "businesses", ["name"], name: "index_businesses_on_name", using: :btree
+  add_index "businesses", ["zipcode"], name: "index_businesses_on_zipcode", using: :btree
+
+  create_table "images", force: true do |t|
+    t.string   "url",        null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "images", ["url"], name: "index_images_on_url", using: :btree
+
+  create_table "taggings", force: true do |t|
+    t.integer  "business_id", null: false
+    t.integer  "tag_id",      null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "taggings", ["business_id"], name: "index_taggings_on_business_id", using: :btree
+  add_index "taggings", ["tag_id", "business_id"], name: "index_taggings_on_tag_id_and_business_id", unique: true, using: :btree
+  add_index "taggings", ["tag_id"], name: "index_taggings_on_tag_id", using: :btree
+
+  create_table "tags", force: true do |t|
+    t.string   "name",       null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "tags", ["name"], name: "index_tags_on_name", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",           null: false
