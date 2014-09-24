@@ -1,3 +1,1 @@
-Hotspots.Models.Tag = Backbone.Model.extend({
-	urlRoot: ""
-});
+Hotspots.Models.Tag = Backbone.Model.extend({});

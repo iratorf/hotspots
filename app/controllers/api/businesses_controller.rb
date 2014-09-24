@@ -3,7 +3,7 @@ module Api
   
     def index
       @businesses = Business.all
-      render json: @businesses
+      render json: @businesses, include: [:tags, :images]
     end
   
     def new
