@@ -13,7 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require underscore
-//= requre backbone
+//= require backbone
 //= require bootstrap
 //= require hotspots
 //= require_tree ../templates

@@ -7,7 +7,7 @@ window.Hotspots = {
 		
 		Hotspots.businesses = new Hotspots.Collections.Businesses
 		
-		new Hotspots.Router.AppRouter({
+		new Hotspots.Routers.AppRouter({
 			"$rootEl": $('.main')
 		})
 		

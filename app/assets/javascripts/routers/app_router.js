@@ -4,7 +4,6 @@ Hotspots.Routers.AppRouter = Backbone.Router.extend({
 	},
 	
 	businessIndex: function () {
-		debugger
 		
 		Hotspots.businesses.fetch();
 		
