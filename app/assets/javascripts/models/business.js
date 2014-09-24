@@ -1,8 +1,6 @@
 Hotspots.Models.Business = Backbone.Model.extend({
 	urlRoot: "api/businesses",
 	
-	//association and parse
-	
 	tags: function () {
 		if (!this._tags){
 			this._tags = new Hotspots.Collections.Tags([], {business: this})
