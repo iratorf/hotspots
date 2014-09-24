@@ -1,13 +1,19 @@
 Hotspots.Routers.AppRouter = Backbone.Router.extend({
 	routes: {
-		"/businesses": "businessIndex"
+		"businesses": "businessIndex"
+	},
+	
+	initialize: function (options) {
+		this.$rootEl = options.$rootEl
 	},
 	
 	businessIndex: function () {
 		
-		Hotspots.businesses.fetch();
+		Hotspots.businesses.fetch({
+			success: function () {console.log(Hotspots.businesses)}
+		});
 		
-		var indexView = new Hotspot.Views.BusinessesIndex({
+		var indexView = new Hotspots.Views.BusinessesIndex({
 			collection: Hotspots.businesses
 		})
 		

@@ -1,6 +1,6 @@
 Hotspots.Collections.Businesses = Backbone.Collection.extend({
 	model: Hotspots.Models.Business,
-	url: "api/businesses",
+	url: "/api/businesses",
 	
 	getOrFetch: function (id){
 		var business;

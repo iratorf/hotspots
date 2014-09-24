@@ -1,6 +1,6 @@
 
 <ul>
-	<% bussiness.forEach( function (business){ %>
-		<li><%= business.name %></li> 
+	<% businesses.forEach( function (business){ %>
+		<li><%= business.escape('name') %></li> 
 	<% }) %>
 </ul>
