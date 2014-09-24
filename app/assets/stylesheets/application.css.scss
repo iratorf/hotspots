@@ -16,3 +16,82 @@
 
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
+
+* {
+	list-style-type: none;
+	border-sizing: border-box;
+}
+
+.navbar {
+	margin: 0px;
+}
+.col-xs-5 {
+	max-height: 100%;
+}
+
+.col-xs-7 {
+	padding: 4px;
+}
+
+.bus-items {
+	padding: 0px;
+}
+
+.bus-item {
+	padding: 4px;
+}
+
+.bus-item-img img {
+	width: 325px;
+	height: 200px;
+}
+
+.bus-name {
+	font-family: sans-serif;
+	font-size: 18px;
+	color: #4C4C4C;
+	display: inline-block;
+}
+.bus-name.bus-address {
+	margin-right: 50px;
+	min-width: 50px;
+}
+
+.bus-info {
+	padding: 2px;
+	margin: 2px;
+	color: #777777;
+}
+
+.glyphicon {
+	font-size: 10px;
+	margin: 0 auto;
+	width: 20px;
+	text-align: center;
+}
+
+.bus-attr.tag {
+	font-size: 15px;
+}
+
+.bus-attr > .price {
+	margin-right: 50px;
+}
+
+.auth-form {
+	margin: 50px auto;
+	width: 30%;
+}
+
+body.auth { 
+  background: url(http://blackgirllonghair.com/wp-content/uploads/2014/08/new-york-city.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.navbar {
+	opacity: 0;
+	color: black;
+}

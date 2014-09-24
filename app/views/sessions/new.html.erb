@@ -1,44 +1,50 @@
-<h1>Sign In</h1>
-
-<form action="<%= session_url %>" method="POST">
-	<input 
-		type="hidden"
-		name="authenticity_token"
-		value="<%= form_authenticity_token %>">
-		
-	<label for="user_email">Email</label>	
-	<input 
-		type="text"
-		name="user[email]"
-		id="user_email">
-		
-	</br>
+<div class="auth">
+	<div class="jumbotron auth-form">
+		<h1>Sign In</h1>
 	
-	<label for="user_password">Password</label>	
-	<input
-		type="password"
-		name="user[password]"
-		id="user_password">
-	</br>
+		<form action="<%= session_url %>" method="POST">
+			<input 
+				type="hidden"
+				name="authenticity_token"
+				value="<%= form_authenticity_token %>">
+		
+			<div class="form-group">
+			<label for="user_email">Email</label>	
+			<input 
+				type="text"
+				name="user[email]"
+				id="user_email"
+				class="form-control">
+			</div>
+	
+			<div class="form-group">
+			<label for="user_password">Password</label>	
+			<input
+				type="password"
+				name="user[password]"
+				id="user_password"
+				class="form-control">
+			</div>
 				
-	<input type="submit" value="Sign In">
-	<button class="guest-login">Guest Login</button>
-</form>
-
-Or click <%= link_to "here", new_user_url %> to Sign Up.
-
-<script>
-$('button.guest-login').on("click", function (event){
-	event.preventDefault();
+			<button type="submit" class="btn btn-primary">Sign in</button>
+			<button class="guest-login btn btn-success">Guest Login</button>
+		</form>
+		</br>
+		Or click <%= link_to "here", new_user_url %> to Sign Up.
+	</div>
+</div>
+	<script>
+	$('button.guest-login').on("click", function (event){
+		event.preventDefault();
 	
-	console.log(event.currentTarget);
+		console.log(event.currentTarget);
 	
-	$form = $(event.currentTarget).parent();
-	$email = $form.find('input#user_email');
-	$password = $form.find('input#user_password');
+		$form = $(event.currentTarget).parent();
+		$email = $form.find('input#user_email');
+		$password = $form.find('input#user_password');
 	
-	$email.val('guest@guestlogin.com');
-	$password.val('guest1234');
-	$form.submit();
-})
-</script>
+		$email.val('guest@guestlogin.com');
+		$password.val('guest1234');
+		$form.submit();
+	})
+	</script>
