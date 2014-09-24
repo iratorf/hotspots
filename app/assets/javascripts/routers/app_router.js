@@ -1,7 +1,7 @@
 Hotspots.Routers.AppRouter = Backbone.Router.extend({
 	routes: {
 		"/businesses": "businessIndex"
-	}
+	},
 	
 	businessIndex: function () {
 		debugger
@@ -9,7 +9,7 @@ Hotspots.Routers.AppRouter = Backbone.Router.extend({
 		Hotspots.businesses.fetch();
 		
 		var indexView = new Hotspot.Views.BusinessesIndex({
-			this.collection: Hotspots.businesses
+			collection: Hotspots.businesses
 		})
 		
 		this.$rootEl.html(indexView.render().$el);

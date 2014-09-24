@@ -14,8 +14,8 @@
 //= require jquery_ujs
 //= require underscore
 //= requre backbone
-//= require hotspots
 //= require bootstrap
+//= require hotspots
 //= require_tree ../templates
 //= require_tree ./models
 //= require_tree ./collections

@@ -11,7 +11,7 @@ Hotspots.Collections.Businesses = Backbone.Collection.extend({
 		} else {
 			business = new Hotspots.Models.Business({id: id});
 			business.fetch({
-				success: function () { that.add(business) };
+				success: function () { that.add(business) }
 			})
 		}
 		
