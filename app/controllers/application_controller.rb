@@ -21,7 +21,10 @@ class ApplicationController < ActionController::Base
     session[:session_token] = nil
   end
   
-  def redirect_to_login
-    redirect_to new_session_url unless signed_in?
+  def ensure_logged_in
+    unless signed_in?
+      redirect_to new_session_url
+      flash[:notice] = ["You must be logged-in"]
+    end
   end
 end
