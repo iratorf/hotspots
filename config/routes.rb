@@ -15,5 +15,6 @@ Rails.application.routes.draw do
   end
   
   resources :businesses, only: [:new, :create]
+  resources :images, only: [:new, :create]
   #add ability to upload images
 end

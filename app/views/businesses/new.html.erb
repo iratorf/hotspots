@@ -1,0 +1,55 @@
+<form action="<%= businesses_url %>" method="POST">
+	<input
+		type="hidden"
+		name="authenticity_token"
+		value="<%= form_authenticity_token %>">
+	
+	<input
+		type="text"
+		name="business[name]"
+		id="business_name"
+		value="name">
+	</br>
+	
+	<input
+		type="text"
+		name="business[street]"
+		id="business_street"
+		value="street">
+	</br>		
+	
+	<input
+		type="text"
+		name="business[city]"
+		id="business_city"
+		value="city">
+		</br>
+		
+	<input
+		type="text"
+		name="business[state]"
+		id="business_state"
+		value="state">
+		</br>
+		
+	<input
+		type="text"
+		name="business[zipcode]"
+		id="business_zipcode"
+		value="zipcode">
+		</br>
+	
+	<input type="submit" value="Submit">
+	
+</form>
+
+</br>
+<form action="">
+	<input
+		type="hidden"
+		name="authenticity_token"
+		value="<%= form_authenticity_token %>">
+	<input 
+		type="text"
+		name="image[url]">
+</form>

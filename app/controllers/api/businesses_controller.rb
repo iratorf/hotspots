@@ -6,22 +6,6 @@ module Api
       render json: @businesses, include: [:tags, :images]
     end
   
-    def new
-      render :new
-    end
-  
-    def create
-      @business = Business.create(business_params)
-    
-      if @business.save
-        flash[:notice] = ["business created"]
-        render json: @business
-      else
-        flash[:notice] = @business.errors.full_messages
-        render :new
-      end
-    end
-  
     def show
       @business = Business.find(params[:id])
     
