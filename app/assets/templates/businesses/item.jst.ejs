@@ -5,12 +5,16 @@
 		</a>
 	
 		<br>
-
+			
 	<div class="bus-info">
 	
-		<a class="bus-name"><%= business.escape('name') %></a>
+			<% if (business.escape('name').length > 20) { %>
+				<a class="bus-name"><%= business.escape('name').substr(0, 20) %>...</a>
+			<% } else { %>
+				<a class="bus-name"><%= business.escape('name') %></a>
+			<% } %>
 	
-		<a href="#" class="bus-name bus-address pull-right">
+		<a href="#" class="bus-name bus-address">
 			<%= business.escape('street') %>
 		</a>
 	

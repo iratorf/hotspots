@@ -51,13 +51,11 @@
 
 .bus-name {
 	font-family: sans-serif;
-	font-size: 18px;
+	font-size: 14px;
 	color: #4C4C4C;
-	display: inline-block;
 }
 .bus-name.bus-address {
-	margin-right: 50px;
-	min-width: 50px;
+	float: right;
 }
 
 .bus-info {
@@ -74,11 +72,11 @@
 }
 
 .bus-attr.tag {
-	font-size: 15px;
+	font-size: 12px;
 }
 
 .bus-attr > .price {
-	margin-right: 50px;
+	margin-right: 10%;
 }
 
 .auth {

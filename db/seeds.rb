@@ -5,9 +5,55 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+require 'Faker'
 
-100.times do 
+IMAGES = [
+  "http://lorempixel.com/output/nightlife-q-c-325-200-6.jpg",
+  "http://lorempixel.com/output/nightlife-q-c-325-200-7.jpg",
+  "http://lorempixel.com/output/nightlife-q-c-325-200-5.jpg",
+  "http://lorempixel.com/output/nightlife-q-c-325-200-4.jpg",
+  "http://lorempixel.com/output/nightlife-q-c-325-200-9.jpg",
+  "http://lorempixel.com/output/nightlife-q-c-325-200-1.jpg",
+  "http://lorempixel.com/output/nightlife-q-c-325-200-2.jpg",
+  "http://lorempixel.com/output/city-q-c-325-200-9.jpg",
+  "http://lorempixel.com/output/city-q-c-325-200-10.jpg",
+  "http://lorempixel.com/output/city-q-c-325-200-4.jpg",
+  "http://lorempixel.com/output/city-q-c-325-200-2.jpg",
+  "http://lorempixel.com/output/food-q-c-325-200-3.jpg",
+  "http://lorempixel.com/output/food-q-c-325-200-2.jpg",
+  "http://lorempixel.com/output/technics-q-c-325-200-4.jpg",
+  "http://lorempixel.com/output/technics-q-c-325-200-2.jpg",
+]
+
+TAGS = [
+  "Bar",
+  "Lounge",
+  "Dive Bar",
+  "Pool Hall",
+  "Dance Club",
+  "Karaoke",
+  "Bar and Grill",
+  "Club",
+  "Comedy Club",
+  "Taco House"
+]
+
+10.times do |n|
+  Tag.create(name: TAGS[n])
+end
+
+30.times do |n|
+  Business.create(
+    name: Faker::Company.name,
+    street: Faker::Address.street_address,
+    city: 'San Francisco',
+    state: 'California',
+    zipcode: (94100 + rand(10..99)),
+    price_range: rand(1..4),
+    latitude: rand(37.75..37.80),
+    longitude: rand(-122.39..-122.44) 
+  )
   
-  Business
-  
+  Image.create(url: IMAGES.sample, business_id: (n + 1))
+  Tagging.create(tag_id: rand(1..10), business_id: (n + 1))
 end
