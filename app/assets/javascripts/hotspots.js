@@ -8,7 +8,7 @@ window.Hotspots = {
 		Hotspots.businesses = new Hotspots.Collections.Businesses
 		
 		new Hotspots.Routers.AppRouter({
-			"$rootEl": $('.bus-lists')
+			"$rootEl": $('.main')
 		})
 		
 		Backbone.history.start();

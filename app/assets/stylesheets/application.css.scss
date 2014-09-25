@@ -29,6 +29,7 @@
 	max-height: 100%;
 	position: fixed;
 	padding-top: 50px;
+	padding-right: 0;
 }
 
 .col-xs-7 {
@@ -81,10 +82,11 @@
 	margin-right: 50px;
 }
 
-.auth-form {
-	margin: 50px auto;
+.auth {
+	margin: 100px auto;
 	width: 30%;
 }
+
 
 body.bg { 
   background: url(http://blackgirllonghair.com/wp-content/uploads/2014/08/new-york-city.jpg) no-repeat center center fixed; 
