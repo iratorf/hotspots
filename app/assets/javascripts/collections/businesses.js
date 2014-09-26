@@ -16,5 +16,13 @@ Hotspots.Collections.Businesses = Backbone.Collection.extend({
 		}
 		
 		return business;
+	},
+	
+	filtered_results: function() {
+		this.filters.forEach()
+	},
+	
+	filters: {
+		
 	}
 })

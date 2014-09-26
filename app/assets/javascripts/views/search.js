@@ -12,7 +12,7 @@ Hotspots.Views.SearchView = Backbone.CompositeView.extend({
 		});
 		
 		var filterView = new Hotspots.Views.Filter({
-			//pass in current filters
+			collection: this.collection
 		});
 		
 		this.addSubview('.bus-lists', businessesView);

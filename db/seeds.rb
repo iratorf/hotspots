@@ -35,7 +35,6 @@ TAGS = [
   "Bar and Grill",
   "Club",
   "Comedy Club",
-  "Taco House"
 ]
 
 User.create(email: 'guest@guestlogin.com', password: 'guest1234')
