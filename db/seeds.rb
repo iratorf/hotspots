@@ -38,6 +38,8 @@ TAGS = [
   "Taco House"
 ]
 
+User.create(email: 'guest@guestlogin.com', password: 'guest1234')
+
 10.times do |n|
   Tag.create(name: TAGS[n])
 end
