@@ -51,9 +51,26 @@ end
     zipcode: (94100 + rand(10..99)),
     price_range: rand(1..4),
     latitude: rand(37.75..37.80),
-    longitude: rand(-122.39..-122.44) 
+    longitude: rand(-122.44..-122.39) 
   )
   
   Image.create(url: IMAGES.sample, business_id: (n + 1))
   Tagging.create(tag_id: rand(1..10), business_id: (n + 1))
 end
+
+30.times do |n|
+  Business.create(
+    name: Faker::Company.name,
+    street: Faker::Address.street_address,
+    city: 'Los Angeles',
+    state: 'California',
+    zipcode: (90000 + rand(10..99)),
+    price_range: rand(1..4),
+    latitude: rand(33.76..34.14),
+    longitude: rand(-118.45..-118.01) 
+  )
+  
+  Image.create(url: IMAGES.sample, business_id: (n + 31))
+  Tagging.create(tag_id: rand(1..10), business_id: (n + 31))
+end
+

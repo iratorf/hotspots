@@ -8,7 +8,7 @@ Hotspots.Views.SearchView = Backbone.CompositeView.extend({
 		})
 		
 		var mapView = new Hotspots.Views.Map({
-			//use google maps api
+			collection: this.collection
 		});
 		
 		var filterView = new Hotspots.Views.Filter({

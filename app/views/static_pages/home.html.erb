@@ -1,9 +1,21 @@
 <div class="main">
 </div>
 
-<!-- <form id="main-search">
-	<input type="text" placeholder="Enter A Location">
+<form id="main-search" class="">
+	<input type="text" name="city" placeholder="Enter A Location">
 	<button type="submit" class="btn btn-primary btn-sm">Search</button>
-</form> -->
+</form>
+
+<script>
+	$('#main-search').on("submit", function (event){
+		event.preventDefault();
+		$input = $(event.currentTarget).find('input');
+		city = $input.serialize();
+		$input.val("");
+		$(event.currentTarget).addClass('hidden');
+		$('body').removeClass('bg');
+		Backbone.history.navigate(('/search?' + city), { trigger: true });
+	})
+</script>
 
 

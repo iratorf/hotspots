@@ -2,7 +2,7 @@ module Api
   class BusinessesController < ApplicationController
   
     def index
-      @businesses = Business.all
+      @businesses = Business.all.where(city: params[:city])
       render json: @businesses, include: [:tags, :images]
     end
   
