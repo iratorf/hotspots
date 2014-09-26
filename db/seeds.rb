@@ -5,7 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-require 'Faker'
+require 'faker'
 
 IMAGES = [
   "http://lorempixel.com/output/nightlife-q-c-325-200-6.jpg",
