@@ -18,11 +18,22 @@ Hotspots.Collections.Businesses = Backbone.Collection.extend({
 		return business;
 	},
 	
-	filtered_results: function() {
-		this.filters.forEach()
+	filteredResults: function() {
+		var results = [];
+		if (this.length === 0){
+			debugger
+			return this;
+		} else {
+			this.forEach(function(result){
+				debugger
+				results.push(result);
+			})
+		}
+		return results;
 	},
 	
 	filters: {
-		
+		tags: [],
+		prices: []
 	}
 })

@@ -2,7 +2,21 @@ module Api
   class BusinessesController < ApplicationController
   
     def index
-      @businesses = Business.all.where(city: params[:city])
+      businesses = Business.all
+      if params[:city]
+        businesses = businesses.where(city: params[:city])
+      end
+      
+      if params[:tags]
+        businesses = businesses.joins(:tags).where(
+        "tags.name IN (?)", params[:tags])
+      end
+      
+      if params[:prices]
+        businesses = businesses.where(price_range: params[:prices])
+      end
+      @businesses = businesses
+
       render json: @businesses, include: [:tags, :images]
     end
   

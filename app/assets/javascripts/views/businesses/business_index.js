@@ -3,13 +3,13 @@ Hotspots.Views.BusinessesIndex = Backbone.CompositeView.extend({
 	
 	initialize: function () {
 		this.listenTo(this.collection, "add", this.addBusItem);
-		this.listenTo(this.collection, "add remove", this.render);
+		// this.listenTo(this.collection.filteredResults(), "add", this.debug);
+		this.listenTo(this.collection, "sync", this.render);
 		
-		var that = this;
-		this.collection.models.forEach(function (business){
-			that.addBusItem(business);
-		})
-		
+	},
+	
+	debug: function () {
+		debugger
 	},
 	
 	addBusItem: function (business) {
@@ -35,6 +35,8 @@ Hotspots.Views.BusinessesIndex = Backbone.CompositeView.extend({
 		})
 		
 		this.$el.html(renderedContent);
+		this._subviews = {};
+		this.collection.each(this.addBusItem.bind(this));
 		this.attachSubviews();
 		return this;
 	}

@@ -14,54 +14,37 @@ Hotspots.Views.Filter = Backbone.View.extend({
 		return this;
 	},
 	
-	filterItems: function () {
-		var shown_items = []
+	addFilterItems: function (value) {
 		
-		debugger
+		if (value.length === 1){
+			var num = parseInt(value, 10);
+			this.collection.filters.prices.push(num);
+		} else {
+			this.collection.filters.tags.push(value);	
+		}
 		
-		$('.delete-filters').children().each(function (index){
-			var $filter = $(this);
-			$('.bus-items').children().each(function (index){
-				var $item = $(this);
-				var tag = $item.find('div.bus-attr').text().trim();
-				if (tag === $filter.text()){
-					shown_items.push($item);
-				}
-			})
-		})
-		debugger
-		$('.bus-items').children().each(function (index){
-			var item = this;
-			shown_items.forEach(function (shown_item){
-				if (shown_item[0] === item){
-					$(item).removeClass("hidden");
-					return;
-				} else {
-					$(item).addClass("hidden");
-				}
-			})
-		})
-		debugger
 		
-		// this.collection.forEach(function (business){
-		// 	business.tags().models.forEach(function (model){
-		// 		tagged = false;
-		// 		if (model.attributes.name === value){
-		// 			tagged = true;
-		// 		}
-		// 	})
-		// 	if (tagged === false){
-		// 		non_items.push(business);
-		// 	}
-		// })
-		// var that = this;
-		// non_items.forEach(function (business){
-		// 	that.collection.remove(business);
-		// })
+		this.collection.fetch({data: this.collection.filters})
+	},
+	
+	removeFilterItems: function (value) {
+		
+		if (value.length === 1){
+			var prices = this.collection.filters.prices;
+			var idx =	prices.indexOf(value);
+			prices.splice(idx, 1);
+		} else {
+			var tags = this.collection.filters.tags;
+			var idx =	tags.indexOf(value);
+			tags.splice(idx, 1);
+		}
+		
+		this.collection.fetch({data: this.collection.filters})	
 	},
 	
 	addFilter: function (event) {
 		event.preventDefault();
+		$(event.currentTarget).prop("disabled", true);
 		value = $(event.currentTarget).val();
 		
 		if (value.length === 1){
@@ -82,7 +65,7 @@ Hotspots.Views.Filter = Backbone.View.extend({
 		$button.val(value);
 		$('.delete-filters').append($button);
 		
-		this.filterItems();
+		this.addFilterItems(value);
 	},
 	
 	moreFilters: function (event){
@@ -95,6 +78,10 @@ Hotspots.Views.Filter = Backbone.View.extend({
 	
 	deleteFilter: function (event){
 		event.preventDefault();
+		var value = $(event.currentTarget).val();
+		$button = $(".filters button.filt[value = '" + value + "']");
+		$button.prop("disabled", false);
 		$(event.currentTarget).remove();
+		this.removeFilterItems(value);
 	}
 });

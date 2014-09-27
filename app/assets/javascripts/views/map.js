@@ -2,7 +2,7 @@ Hotspots.Views.Map = Backbone.View.extend({
 	template: JST["map"],
 	
 	initialize: function () {
-		this.listenTo(this.collection, "add", this.render)
+		this.listenTo(this.collection, "sync", this.render)
 	},
 	
 	render: function () {
@@ -17,7 +17,7 @@ Hotspots.Views.Map = Backbone.View.extend({
 					this.collection.first().escape('latitude'),
 					this.collection.first().escape('longitude')
 				),
-	      zoom: 11
+	      zoom: 12
 	    };
 			
 	    var map = new google.maps.Map(this.$('#map-canvas')[0], mapOptions);
