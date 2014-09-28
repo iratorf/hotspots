@@ -24,6 +24,11 @@
 
 .navbar {
 	margin: 0px;
+	background-color: #8A949B;
+}
+
+.navbar-header a {
+	color: white;
 }
 
 #main-search {
@@ -42,6 +47,7 @@
 
 .bus-item {
 	padding: 4px;
+	background-color: #243743;
 }
 
 .bus-item-img img {
@@ -52,7 +58,7 @@
 .bus-name {
 	font-family: sans-serif;
 	font-size: 14px;
-	color: #4C4C4C;
+	color: white;
 }
 .bus-name.bus-address {
 	float: right;
@@ -61,7 +67,7 @@
 .bus-info {
 	padding: 2px;
 	margin: 2px;
-	color: #777777;
+	color: white;
 }
 
 .glyphicon {
@@ -97,6 +103,8 @@
 	position: absolute;
 	right: 0;
 	overflow: auto;
+	background-color: #243743;
+	color: white;
 }
 #map-canvas {
 	height: 100%;
@@ -129,6 +137,14 @@ button > .glyphicon-search {
 
 .errors {
 	padding: 5px;
+}
+
+.filt{
+	background-color: #28B78D;
+}
+
+.delete-filter {
+	background-color: #28B78D;
 }
 
 body.bg { 

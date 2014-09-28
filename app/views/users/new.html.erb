@@ -1,8 +1,8 @@
 <div class="auth">
 	<div class="jumbotron auth-form">
-		<% if flash[:notice] %>
+		<% if flash.now[:notice] %>
 			<ul class="errors alert alert-danger">
-				<% flash[:notice].each do |notice| %>
+				<% flash.now[:notice].each do |notice| %>
 					<li><%= notice %></li>
 				<% end %>
 			</ul>
