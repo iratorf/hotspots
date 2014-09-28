@@ -1,5 +1,12 @@
 <div class="auth">
 	<div class="jumbotron auth-form">
+		<% if flash[:notice] %>
+			<ul class="errors alert alert-danger">
+				<% flash[:notice].each do |notice| %>
+					<li><%= notice %></li>
+				<% end %>
+			</ul>
+		<% end %>
 		<h1>Sign In</h1>
 	
 		<form action="<%= session_url %>" method="POST">

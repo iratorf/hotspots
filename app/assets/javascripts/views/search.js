@@ -3,6 +3,9 @@ Hotspots.Views.SearchView = Backbone.CompositeView.extend({
 	
 	initialize: function () {
 		
+		$('body').removeClass('bg');
+		$('#main-search').addClass('hidden');
+		
 		var businessesView = new Hotspots.Views.BusinessesIndex({
 			collection: this.collection
 		})

@@ -9,21 +9,11 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body class="bg">
 	<!--header -->
 	<%= render "layouts/header" %>
 	
 	<!--notices -->
-	<div class="errors">
-		<% if flash[:notice] %>
-			<ul>
-				<% flash[:notice].each do |notice| %>
-					<li><%= notice %></li>
-				<% end %>
-			</ul>
-		<% end %>
-	</div>
-
 
 	<%= yield %>
 
