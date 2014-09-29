@@ -22,13 +22,22 @@
 	border-sizing: border-box;
 }
 
-.navbar {
-	margin: 0px;
-	background-color: #8A949B;
+.navbar-default .navbar-nav > li > a {
+	color: #28B78D;
 }
 
-.navbar-header a {
-	color: white;
+.navbar {
+	margin: 0px;
+	background-color: #243743;
+	border: 0;
+}
+
+.navbar-default .navbar-brand {
+	color: #28B78D;
+}
+
+div.navbar-header{
+	color: #28B78D;
 }
 
 #main-search {
@@ -47,7 +56,7 @@
 
 .bus-item {
 	padding: 4px;
-	background-color: #243743;
+	background-color: #FAFAFA;
 }
 
 .bus-item-img img {
@@ -58,7 +67,7 @@
 .bus-name {
 	font-family: sans-serif;
 	font-size: 14px;
-	color: white;
+	color: 666666;
 }
 .bus-name.bus-address {
 	float: right;
@@ -67,7 +76,7 @@
 .bus-info {
 	padding: 2px;
 	margin: 2px;
-	color: white;
+	color: #858585;
 }
 
 .glyphicon {
@@ -103,8 +112,8 @@
 	position: absolute;
 	right: 0;
 	overflow: auto;
-	background-color: #243743;
-	color: white;
+	background-color: #FAFAFA;
+	color: #666666;
 }
 #map-canvas {
 	height: 100%;
