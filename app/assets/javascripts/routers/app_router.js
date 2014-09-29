@@ -1,6 +1,7 @@
 Hotspots.Routers.AppRouter = Backbone.Router.extend({
 	routes: {
-		"search": "searchIndex"
+		"search": "searchIndex",
+		"businesses/:id": "businessShow"
 	},
 	
 	initialize: function (options) {
@@ -20,6 +21,24 @@ Hotspots.Routers.AppRouter = Backbone.Router.extend({
 			collection: Hotspots.businesses
 		})
 		
-		this.$rootEl.html(searchView.render().$el);
+		this._swapView(searchView);
 	},
+	
+	businessShow: function (id) {
+		
+		var business = Hotspots.businesses.getOrFetch(id);
+		
+		var busShowView = new Hotspots.Views.BusinessShow({
+			model: business
+		})
+		
+		this._swapView(busShowView);
+	},
+	
+	_swapView: function (view){
+		this._currentView && this._currentView.remove();
+		this._currentView = view;
+		this.$rootEl.html(view.render().$el);
+	}
+	
 })

@@ -12,6 +12,8 @@
 #  price_range :integer
 #  created_at  :datetime
 #  updated_at  :datetime
+#  latitude    :float
+#  longitude   :float
 #
 
 require 'test_helper'

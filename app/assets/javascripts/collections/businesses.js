@@ -21,11 +21,9 @@ Hotspots.Collections.Businesses = Backbone.Collection.extend({
 	filteredResults: function() {
 		var results = [];
 		if (this.length === 0){
-			debugger
 			return this;
 		} else {
 			this.forEach(function(result){
-				debugger
 				results.push(result);
 			})
 		}

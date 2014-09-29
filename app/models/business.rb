@@ -12,6 +12,8 @@
 #  price_range :integer
 #  created_at  :datetime
 #  updated_at  :datetime
+#  latitude    :float
+#  longitude   :float
 #
 
 class Business < ActiveRecord::Base
@@ -20,5 +22,5 @@ class Business < ActiveRecord::Base
   has_many :taggings, dependent: :destroy
   has_many :tags, through: :taggings
   has_many :images, dependent: :destroy
-  # has_many :reviews, dependent: :destroy
+  has_many :reviews, dependent: :destroy
 end

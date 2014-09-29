@@ -1,0 +1,27 @@
+<% if (business.images().length > 0) { %>
+	<img src="<%= business.images().first().escape("url") %>">
+<% } %>
+
+<h1><%= business.escape("name") %></h1>
+<ul>
+	<li><%= business.escape("street") %></li>
+	<li><%= business.escape("city") %></li>
+	<li><%= business.escape("state") %> <%= business.escape("zipcode") %></li>
+</ul>
+
+<% for(var i = 0; i < business.escape('price_range'); i++) { %>
+	<span class="glyphicon glyphicon-usd"></span>
+<%}%>
+
+
+<ul>
+	<% if (business.tags().length > 0) { %>
+		<% business.tags().forEach(function (tag) { %>
+		<li><%= tag.escape('name') %></li>
+		<% }) %>
+	<% } %>
+</ul>
+
+
+<div class="reviews"></div>
+<div class="new-review"></div>
