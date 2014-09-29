@@ -15,6 +15,13 @@ Hotspots.Models.Business = Backbone.Model.extend({
 		return this._images;
 	},
 	
+	reviews: function () {
+		if (!this._reviews){
+			this._reviews = new Hotspots.Collections.Reviews([], { business: this})
+		}
+		return this._reviews
+	},
+	
 	parse: function (response){
 		if (response.tags){
 			this.tags().set(response.tags, {parse: true} );
@@ -26,7 +33,26 @@ Hotspots.Models.Business = Backbone.Model.extend({
 			delete response.images;
 		}
 		
+		if (response.reviews){
+			this.reviews().set(response.reviews, {parse: true});
+			delete response.reviews;
+		}
 		
 		return response;
+	},
+	
+	rating: function () {
+		if (this.reviews().length === 0){
+			return "No Rating";
+		} else {
+			var count = 0;
+			var scores = 0;
+			this.reviews().each(function (review){
+				scores += review.get('score');
+				count++;
+			});
+			
+			return Math.floor(scores/count);
+		}
 	}
 })

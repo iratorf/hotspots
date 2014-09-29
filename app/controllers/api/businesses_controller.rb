@@ -17,7 +17,7 @@ module Api
       end
       @businesses = businesses
 
-      render json: @businesses, include: [:tags, :images]
+      render json: @businesses, include: [:tags, :images, :reviews]
     end
   
     def show

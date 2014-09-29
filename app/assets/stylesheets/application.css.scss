@@ -168,6 +168,19 @@ button > .glyphicon-search {
 	border: 0;
 }
 
+.show-info {
+	width: 65%;
+	top: 100px;
+	border-right: 3px solid lightgray;
+}
+
+.show-side {
+	width: 35%;
+	position: absolute;
+	right: 0;
+	top: 100px;
+}
+
 body.bg { 
   background: url(http://sohailmamdani.com/wp-content/uploads/2012/09/MG_6790-Edit.jpg) no-repeat center center fixed; 
   -webkit-background-size: cover;

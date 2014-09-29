@@ -10,18 +10,27 @@ Hotspots.Views.BusinessShow = Backbone.CompositeView.extend({
 		$('.navbar').removeClass('root');
 		
 		this.listenTo(this.model, 'sync', this.render);
+		this.listenTo(this.model.reviews(), 'add', this.render);
+		
+		var reviewsIndex = new Hotspots.Views.ReviewsIndex({
+			collection: this.model.reviews()
+		})
 		
 		var reviewNew = new Hotspots.Views.ReviewNew({
 			model: this.model
 		})
 		
+		this.addSubview('.reviews', reviewsIndex);
 		this.addSubview('.new-review', reviewNew);
+		
 	},
 	
 	render: function () {
 
 		var renderedContent = this.template({
-			business: this.model
+			business: this.model,
+			rating: this.model.rating(),
+			numReviews: this.model.reviews().length
 		})
 		
 		this.$el.html(renderedContent);

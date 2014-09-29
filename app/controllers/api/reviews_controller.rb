@@ -1,28 +1,28 @@
-class ReviewsController < ApplicationController
+module Api
+  class ReviewsController < ApplicationController
   
-  def index
-    @reviews = Review.all
-  end
+    def index
+      @reviews = Review.all
+    end
   
-  def new
-  end
+    def create
+      @review = current_user.reviews.new(review_params)
+    
+      if @review.save
+        render json: @review
+      else
+        render json: @review.errors.full_messages, status: :unprocessable_entity
+      end
+    end
+
+    def update
+    end
   
-  def create
-  end
+    def destroy
+    end
   
-  def show
-  end
-  
-  def edit
-  end
-  
-  def update
-  end
-  
-  def destroy
-  end
-  
-  def review_params
-    params.require(:review).permit(:body, :score)
+    def review_params
+      params.require(:review).permit(:body, :score, :business_id)
+    end
   end
 end

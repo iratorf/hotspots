@@ -1,9 +1,18 @@
-<form action="api/businesses/<%= business.id %>/reviews" method"POST">
-		
+<form id="new-review">
+	<label for="review_body">Write A Review</label>	
+</br>
 	<textarea
 		name="review[body]"
 		id="review_body"></textarea>
-
+		
 	</br>
+	
+	<label>Rating</label>
+	<input type="radio" name="review[score]" value="1" class="rate">1</input>
+	<input type="radio" name="review[score]" value="2" class="rate">2</input>
+	<input type="radio" name="review[score]" value="3" class="rate">3</input>
+	<input type="radio" name="review[score]" value="4" class="rate">4</input>
+	<input type="radio" name="review[score]" value="5" class="rate">5</input>
+</br>
 	<button type="submit" class="btn btn-default btn-sm">Post Review</button>
 </form>

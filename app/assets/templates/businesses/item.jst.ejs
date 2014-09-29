@@ -22,6 +22,9 @@
 	
 		<div class="bus-attr tag">
 			<%= business.tags().first().escape('name')%>
+			<div class="rating pull-left">
+				<%= rating %>
+			</div>
 			<div class="price pull-right">
 				<% for(var i = 0; i < business.escape('price_range'); i++) { %>
 					<span class="glyphicon glyphicon-usd"></span>

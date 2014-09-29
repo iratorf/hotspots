@@ -8,10 +8,6 @@ Hotspots.Views.BusinessesIndex = Backbone.CompositeView.extend({
 		
 	},
 	
-	debug: function () {
-		debugger
-	},
-	
 	addBusItem: function (business) {
 		var busItemView = new Hotspots.Views.BusItem({
 			model: business
