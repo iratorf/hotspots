@@ -226,11 +226,11 @@ ul.tags {
 
 /* Right Pane (Bus Show) */
 .show-side {
-	width: 35%;
+	width: 30%;
 	height: 100%;
-	top: 100px;
 	padding: 2%;
-	float: left;
+	position: fixed;
+	right: 8.3%;
 }
 
 .new-review textarea{
