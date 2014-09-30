@@ -13,7 +13,7 @@ Hotspots.Views.SearchView = Backbone.CompositeView.extend({
 			collection: this.collection
 		})
 		
-		var mapView = new Hotspots.Views.MapAll({
+		var mapView = new Hotspots.Views.Map({
 			collection: this.collection
 		});
 		

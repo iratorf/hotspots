@@ -22,6 +22,16 @@
 	border-sizing: border-box;
 }
 
+/*Home Page And NavBar*/
+
+body.bg { 
+  background: url(http://sohailmamdani.com/wp-content/uploads/2012/09/MG_6790-Edit.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
 .navbar-default .navbar-nav > li > a {
 	color: #FF4747;
 }
@@ -53,6 +63,12 @@ div.navbar-header{
 	transform: translate(-50%, -50%);
 }
 
+/* Search View*/
+body {
+	padding-top: 50px
+}
+
+/* Businesses */
 .bus-lists {
 	padding-left: 15px;
 }
@@ -105,13 +121,8 @@ div.navbar-header{
 	width: 30%;
 }
 
-.map {
-	width: 40%;
-	height: 100%;
-	position: absolute;
-	left: 0;
-}
 
+/* Side View (Search) */
 .display-listings {
 	width: 60%;
 	height: 100%;
@@ -121,6 +132,15 @@ div.navbar-header{
 	background-color: #FAFAFA;
 	color: #666666;
 }
+
+/* Map (search) */
+.map {
+	width: 40%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+}
+
 #map-canvas {
 	height: 100%;
 	width: 100%;
@@ -128,14 +148,11 @@ div.navbar-header{
 	bottom: 0;
 }
 
+/* Filters */
 .filter {
 	padding: 20px;
 	margin: 0;
 	background-color: #E5E5E5;
-}
-
-body {
-	padding-top: 50px
 }
 
 button > .glyphicon-search {
@@ -168,6 +185,9 @@ button > .glyphicon-search {
 	border: 0;
 }
 
+/* Business Show Page */
+
+/* Left pane (bus show) */
 .show-main {
 	width: 65%;
 	top: 100px;
@@ -177,24 +197,6 @@ button > .glyphicon-search {
 
 .show-info {
 	padding: 2%;
-}
-
-.show-side {
-	width: 35%;
-	height: 100%;
-	position: absolute;
-	right: 1%;
-	top: 100px;
-}
-
-.new-review textarea{
-	width: 60%;
-	height: 100px;
-}
-
-.show-map #map-canvas {
-	height: 50%;
-	width: 50%;
 }
 
 ul.address {
@@ -217,10 +219,30 @@ ul.tags {
 	width: 60%;
 }
 
-body.bg { 
-  background: url(http://sohailmamdani.com/wp-content/uploads/2012/09/MG_6790-Edit.jpg) no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+/* Right Pane (Bus Show) */
+.show-side {
+	width: 35%;
+	height: 100%;
+	position: absolute;
+	right: 1%;
+	top: 100px;
+}
+
+.new-review textarea{
+	width: 60%;
+	height: 20%;
+}
+
+#new-review {
+	position: absolute;
+	top: 50%;
+	height: 100%;
+	width: 100%;
+}
+
+.show-map #map-canvas {
+	height: 40%;
+	width: 60%;
+	position: absolute;
+	top: 0;
 }
