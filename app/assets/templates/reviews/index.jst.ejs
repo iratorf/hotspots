@@ -1,4 +1,12 @@
-<h4><%= this.collection.length %> Reviews : Score of <%= business.rating() %></h4>
+<% if (business.rating() === "No Reviews") { %>
+	<h4> No Reviews </h4>
+	<button class="btn btn-default btn-sm">Write the First One</button>
+<% } else { %>
+	<h4><%= reviews.length %> Reviews
+		<% for(var i = 0; i < business.rating(); i++) {%>
+		<span class="glyphicon glyphicon-star"></span>
+		<% } } %>
+	</h4>
 
 <ul class="review-items">
 	

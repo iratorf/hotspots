@@ -1,6 +1,8 @@
 Hotspots.Views.Map = Backbone.View.extend({
 	template: JST["map"],
 	
+	className: 'show-map',
+	
 	initialize: function () {
 		if (this.collection){
 			this.listenTo(this.collection, "sync", this.render)	
@@ -40,6 +42,7 @@ Hotspots.Views.Map = Backbone.View.extend({
 	},
 	
 	mapOne: function () {
+
     var mapOptions = {
       center: new google.maps.LatLng(
 				this.model.escape('latitude'),
@@ -51,5 +54,6 @@ Hotspots.Views.Map = Backbone.View.extend({
 			this.model.escape('longitude')
 		)
 		new google.maps.Marker({ position: latLng, map: map });	
+
 	}
 });

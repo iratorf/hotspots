@@ -15,8 +15,18 @@
 				</div>
 				
 				<div class="col-xs-5">
-					<h3 class="rating">Score: <%= rating %> (<%= numReviews %>)
+					<h3 class="rating">
+						<% if (business.rating() === "No Reviews") { %>
+							<h4> No Reviews </h4>
+						<% } else { %>
+							<% if (this.model.reviews() && this.model.reviews().length >0) {%>
+							<% for(var i = 0; i < business.rating(); i++) {%>
+								<span class="glyphicon glyphicon-star"></span>
+						<% } %>
+							(<%= numReviews %>)
+							<% }} %>
 					</h4>
+					
 					<% for(var i = 0; i < business.escape('price_range'); i++) { %>
 						<span class="glyphicon glyphicon-usd"></span>
 					<%}%>
@@ -41,7 +51,5 @@
 
 
 	<div class="show-side">
-		<div class="show-map"></div>
-		<div class="new-review"></div>
 	</div>
 </div>

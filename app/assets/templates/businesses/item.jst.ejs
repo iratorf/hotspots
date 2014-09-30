@@ -1,5 +1,6 @@
 <li class="bus-item pull-left">
 	
+	<% if (business.images().length > 0) {  %>
 		<a href="#" class="bus-item-img">
 			<img src="<%= business.images().first().escape('url') %>">
 		</a>
@@ -32,4 +33,5 @@
 			</div>
 		</div>
 	</div>
+	<% } %>
 </li>

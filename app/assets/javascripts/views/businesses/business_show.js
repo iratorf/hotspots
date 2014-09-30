@@ -5,10 +5,10 @@ Hotspots.Views.BusinessShow = Backbone.CompositeView.extend({
 		this.clearDesign();
 		this.listenTo(this.model, 'sync', this.render);
 		this.listenTo(this.model.reviews(), 'sync add', this.render);
-
+		
 		this.addReviewsIndex();
-		this.addReviewNew();
 		this.addMap();
+		this.addReviewNew();
 	},
 	
 	clearDesign: function () {
@@ -31,14 +31,14 @@ Hotspots.Views.BusinessShow = Backbone.CompositeView.extend({
 		var reviewNew = new Hotspots.Views.ReviewNew({
 			model: this.model
 		})
-		this.addSubview('.new-review', reviewNew);
+		this.addSubview('.show-side', reviewNew);
 	},
 	
 	addMap: function () {
 		var mapShow = new Hotspots.Views.Map({
 			model: this.model
 		})
-		this.addSubview('.show-map', mapShow);
+		this.addSubview('.show-side', mapShow);
 	},
 	
 	render: function () {
@@ -48,7 +48,6 @@ Hotspots.Views.BusinessShow = Backbone.CompositeView.extend({
 			rating: this.model.rating(),
 			numReviews: this.model.reviews().length
 		})
-		
 		this.$el.html(renderedContent);
 		this.attachSubviews();
 		return this;

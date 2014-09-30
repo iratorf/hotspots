@@ -43,7 +43,7 @@ Hotspots.Models.Business = Backbone.Model.extend({
 	
 	rating: function () {
 		if (this.reviews().length === 0){
-			return "No Rating";
+			return "No Reviews";
 		} else {
 			var count = 0;
 			var scores = 0;

@@ -1,6 +1,8 @@
 Hotspots.Views.ReviewNew = Backbone.View.extend({
 	template: JST["reviews/new"],
 	
+	className: 'new-review',
+	
 	events: {
 		"submit #new-review": "handleSubmit"
 		

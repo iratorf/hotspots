@@ -1,6 +1,10 @@
 Hotspots.Views.BusItem = Backbone.View.extend({
 	template: JST['businesses/item'],
 	
+	initialize: function () {
+		this.listenTo(this.model, "sync", this.render)
+	},
+	
 	events: {
 		"click .bus-item a": "handleRedirect"
 	},

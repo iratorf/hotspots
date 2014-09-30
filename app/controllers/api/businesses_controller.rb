@@ -2,7 +2,7 @@ module Api
   class BusinessesController < ApplicationController
   
     def index
-      businesses = Business.all
+      businesses = Business.all #.includes(:tags, :images, :reviews)
       if params[:city]
         businesses = businesses.where(city: params[:city])
       end
@@ -17,13 +17,16 @@ module Api
       end
       @businesses = businesses
 
+      # render :index
       render json: @businesses, include: [:tags, :images, :reviews]
     end
   
     def show
       @business = Business.find(params[:id])
+      
+      render :show
     
-      render json: @business, include: [:tags, :images, :reviews]
+      # render json: @business, include: [:tags, :images, :reviews]
     end
   
     def edit

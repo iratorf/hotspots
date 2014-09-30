@@ -2,12 +2,16 @@
 	<div class="row">
 		<div class="col-xs-2">
 			<img src="http://www.hakkalabs.co/assets/placeholder.png" class="user-pic img-circle">
-			User Email
-			<%= review.escape('created_at') %>
+			<%= review.user().escape('email').match(/[^@]*/) %>
+			<% date = new Date(review.escape('created_at')) %>
+			<%= date.toLocaleDateString() %>
 		</div>
 		
 		<div class="col-xs-10">
-			<%= review.get('score') %>
+			<% for (var i = 0; i < review.get('score'); i++) { %>
+				<span class="glyphicon glyphicon-star"></span>
+			<% } %>
+		</br>
 			<%= review.escape("body") %>
 		</div>
 	</div>

@@ -101,7 +101,7 @@ body {
 	color: #858585;
 }
 
-.glyphicon {
+.glyphicon-usd {
 	font-size: 10px;
 	margin: 0 auto;
 	width: 3px;
@@ -141,7 +141,7 @@ body {
 	left: 0;
 }
 
-#map-canvas {
+.show-map #map-canvas {
 	height: 100%;
 	width: 100%;
 	position: absolute;
@@ -193,6 +193,7 @@ button > .glyphicon-search {
 	top: 100px;
 	border-right: 3px solid lightgray;
 	padding: 2%;
+	float: left;
 }
 
 .show-info {
@@ -219,13 +220,17 @@ ul.tags {
 	width: 60%;
 }
 
+.glyphicon-star {
+	color: #FF4D4D;
+}
+
 /* Right Pane (Bus Show) */
 .show-side {
 	width: 35%;
 	height: 100%;
-	position: absolute;
-	right: 1%;
 	top: 100px;
+	padding: 2%;
+	float: left;
 }
 
 .new-review textarea{
@@ -234,15 +239,19 @@ ul.tags {
 }
 
 #new-review {
-	position: absolute;
-	top: 50%;
-	height: 100%;
-	width: 100%;
+/*	position: absolute;*/
+/*	top: 50%;*/
+/*	height: 100%;*/
+/*	width: 100%;*/
 }
 
-.show-map #map-canvas {
-	height: 40%;
-	width: 60%;
-	position: absolute;
-	top: 0;
+.show-side > .show-map {
+	height: 300px;
+	width: 100%;
+	position: relative;
+}
+
+.show-side > .show-map > #map-canvas {
+	height: 300px;
+	width: 100%;
 }
