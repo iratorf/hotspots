@@ -168,10 +168,15 @@ button > .glyphicon-search {
 	border: 0;
 }
 
-.show-info {
+.show-main {
 	width: 65%;
 	top: 100px;
 	border-right: 3px solid lightgray;
+	padding: 2%;
+}
+
+.show-info {
+	padding: 2%;
 }
 
 .show-side {
@@ -179,6 +184,25 @@ button > .glyphicon-search {
 	position: absolute;
 	right: 0;
 	top: 100px;
+}
+
+.rating {
+	
+}
+
+ul.address {
+	padding: 0;
+	margin: 0;
+}
+
+ul.tags {
+	display: inline;
+	padding: 3px;
+}
+
+.profile-pic {
+	height: 100%;
+	width: 100%;
 }
 
 body.bg { 

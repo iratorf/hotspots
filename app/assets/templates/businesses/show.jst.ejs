@@ -1,31 +1,36 @@
 <div class="container">
-	<div class="show-info">
-		<h3><%= business.escape("name") %></h3>
+	<div class="show-main">
 		
-		<ul>
-			<li><%= business.escape("street") %></li>
-			<li><%= business.escape("city") %></li>
-			<li>
-				<%= business.escape("state") %>, <%= business.escape("zipcode") %>
-			</li>
-		</ul>
-
-		<% for(var i = 0; i < business.escape('price_range'); i++) { %>
-			<span class="glyphicon glyphicon-usd"></span>
-		<%}%>
-
-
-		<ul>
-			<% if (business.tags().length > 0) { %>
-				<% business.tags().forEach(function (tag) { %>
-				<li><%= tag.escape('name') %></li>
-				<% }) %>
-			<% } %>
-		</ul>
-
-		Score: <%= rating %> (<%= numReviews %>)
-		
-	</br>
+		<div class="show-info">
+			<div class="row">
+				<div class="col-xs-7">
+					<h3><%= business.escape("name") %></h3>
+					<ul class="address">
+						<li><%= business.escape("street") %></li>
+						<li><%= business.escape("city") %></li>
+						<li>
+							<%= business.escape("state") %>, <%= business.escape("zipcode") %>
+						</li>
+					</ul>
+				</div>
+				
+				<div class="col-xs-5">
+					<h3 class="rating">Score: <%= rating %> (<%= numReviews %>)
+					</h4>
+					<% for(var i = 0; i < business.escape('price_range'); i++) { %>
+						<span class="glyphicon glyphicon-usd"></span>
+					<%}%>
+					<ul class="tags">
+						<% if (business.tags().length > 0) { %>
+							<% business.tags().forEach(function (tag) { %>
+							<li><%= tag.escape('name') %></li>
+							<% }) %>
+						<% } %>
+					</ul>
+				</div>
+			</div>
+		</div>
+	<hr>
 		<% if (business.images().length > 0) { %>
 			<img src="<%= business.images().first().escape("url") %>" 
 			class="profile-pic">
