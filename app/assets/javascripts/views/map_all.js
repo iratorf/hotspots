@@ -1,4 +1,4 @@
-Hotspots.Views.Map = Backbone.View.extend({
+Hotspots.Views.MapAll = Backbone.View.extend({
 	template: JST["map"],
 	
 	initialize: function () {
@@ -7,7 +7,7 @@ Hotspots.Views.Map = Backbone.View.extend({
 	
 	render: function () {
 		var renderedContent = this.template({
-			businesses: this.collection
+			businesses: this.collection,
 		});
 		this.$el.html(renderedContent);
 		

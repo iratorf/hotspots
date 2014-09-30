@@ -8,7 +8,7 @@ Hotspots.Views.ReviewsIndex = Backbone.CompositeView.extend({
 	
 	addReview: function (review){
 		var reviewView = new Hotspots.Views.ReviewShow({
-			model: review
+			model: review,
 		})
 		
 		this.addSubview('.review-items', reviewView);
@@ -16,7 +16,8 @@ Hotspots.Views.ReviewsIndex = Backbone.CompositeView.extend({
 	
 	render: function () {
 		var renderedContent = this.template({
-			reviews: this.collection
+			reviews: this.collection,
+			business: this.model
 		})
 		this.$el.html(renderedContent);
 		this._subviews = {};

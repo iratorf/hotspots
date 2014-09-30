@@ -13,14 +13,20 @@ Hotspots.Views.BusinessShow = Backbone.CompositeView.extend({
 		this.listenTo(this.model.reviews(), 'add', this.render);
 		
 		var reviewsIndex = new Hotspots.Views.ReviewsIndex({
-			collection: this.model.reviews()
+			collection: this.model.reviews(),
+			model: this.model
 		})
 		
 		var reviewNew = new Hotspots.Views.ReviewNew({
 			model: this.model
 		})
 		
+		var mapShow = new Hotspots.Views.MapOne({
+			model: this.model
+		})
+		
 		this.addSubview('.reviews', reviewsIndex);
+		this.addSubview('.show-map', mapShow);
 		this.addSubview('.new-review', reviewNew);
 		
 	},

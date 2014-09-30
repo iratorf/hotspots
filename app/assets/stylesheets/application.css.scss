@@ -181,13 +181,20 @@ button > .glyphicon-search {
 
 .show-side {
 	width: 35%;
+	height: 100%;
 	position: absolute;
-	right: 0;
+	right: 1%;
 	top: 100px;
 }
 
-.rating {
-	
+.new-review textarea{
+	width: 60%;
+	height: 100px;
+}
+
+.show-map #map-canvas {
+	height: 50%;
+	width: 50%;
 }
 
 ul.address {
@@ -203,6 +210,11 @@ ul.tags {
 .profile-pic {
 	height: 100%;
 	width: 100%;
+}
+
+.user-pic {
+	height: 60%;
+	width: 60%;
 }
 
 body.bg { 

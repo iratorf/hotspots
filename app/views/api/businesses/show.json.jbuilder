@@ -20,5 +20,6 @@ json.business
 		json.id review.id
 		json.user_id review.user_id
 		json.score review.score
+		json.date review.created_at
 	end
 end

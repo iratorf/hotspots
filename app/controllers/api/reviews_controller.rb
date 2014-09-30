@@ -2,7 +2,8 @@ module Api
   class ReviewsController < ApplicationController
   
     def index
-      @reviews = Review.all
+      @reviews = Review.all 
+      render json: @reviews, include: [:user]
     end
   
     def create
@@ -13,6 +14,9 @@ module Api
       else
         render json: @review.errors.full_messages, status: :unprocessable_entity
       end
+    end
+    
+    def show
     end
 
     def update

@@ -1,1 +1,15 @@
-<li><%= review.escape("body") %> : <%= review.escape("score") %></li>
+<li>
+	<div class="row">
+		<div class="col-xs-2">
+			<img src="http://www.hakkalabs.co/assets/placeholder.png" class="user-pic img-circle">
+			User Email
+			<%= review.escape('created_at') %>
+		</div>
+		
+		<div class="col-xs-10">
+			<%= review.get('score') %>
+			<%= review.escape("body") %>
+		</div>
+	</div>
+	<hr>
+</li>
