@@ -14,58 +14,71 @@ Hotspots.Views.Filter = Backbone.View.extend({
 		return this;
 	},
 	
-	addFilterItems: function (value) {
-		
-		if (value.length === 1){
+	addFilterItems: function (value, categ) {
+		if (categ === "price"){
 			var num = parseInt(value, 10);
 			this.collection.filters.prices.push(num);
+		} else if (categ === "dist"){
+			var num = parseInt(value, 10);
+			this.collection.filters.distance.push(num);
 		} else {
 			this.collection.filters.tags.push(value);	
 		}
-		
-		
-		this.collection.fetch({data: this.collection.filters})
+		this.collection.fetch({data: this.collection.filters});
 	},
 	
-	removeFilterItems: function (value) {
-		
-		if (value.length === 1){
+	removeFilterItems: function (value, categ) {
+		if (categ === "price"){
+			var val = parseInt(value, 10);
 			var prices = this.collection.filters.prices;
-			var idx =	prices.indexOf(value);
+			var idx =	prices.indexOf(val);
 			prices.splice(idx, 1);
+		} else if (categ === "dist") {
+			var val = parseInt(value, 10);
+			var distance = this.collection.filters.distance;
+			var idx = distance.indexOf(val);
+			distance.splice(idx, 1);
 		} else {
 			var tags = this.collection.filters.tags;
 			var idx =	tags.indexOf(value);
 			tags.splice(idx, 1);
 		}
-		
 		this.collection.fetch({data: this.collection.filters})	
 	},
 	
 	addFilter: function (event) {
 		event.preventDefault();
 		$(event.currentTarget).prop("disabled", true);
-		value = $(event.currentTarget).val();
-		
-		if (value.length === 1){
-			var num = parseInt(value, 10);
-			var dollars = "";
-			for(var i = 1; i <= num; i++){
-				dollars += '<span class="glyphicon glyphicon-usd"></span>\n'
-			}
-			var $button = $('<button class="btn btn-default delete-filter">' + 											dollars + '</button');
+		var value = $(event.currentTarget).val();
+		var categ = event.currentTarget.classList[0];
+		if (categ === "price"){
+			var $button = this.addDollars(value);
+		} else if (categ === "dist"){
+			var $button = this.addDistance(value);
 		} else {
 			var $button = $('<button class="btn btn-default delete-filter"></button');
 			$button.text(value);
 		}
-		
 		var xstr = '<span class="glyphicon glyphicon-remove pull-right"></span>';
-		$button.append(xstr);
-		
-		$button.val(value);
+		$button.append(xstr).val(value);
 		$('.delete-filters').append($button);
-		
-		this.addFilterItems(value);
+		this.addFilterItems(value, categ);
+	},
+	
+	addDistance: function (value){
+		var $button = $('<button class="dist btn btn-default delete-filter">< ' + 
+										value + ' mi</button>');
+		return $button;
+	},
+	
+	addDollars: function (value) {
+		var num = parseInt(value, 10);
+		var dollars = "";
+		for(var i = 1; i <= num; i++){
+			dollars += '<span class="glyphicon glyphicon-usd"></span>\n'
+		}
+		var $button = $('<button class="price btn btn-default delete-filter">' + 											dollars + '</button>');
+		return $button;
 	},
 	
 	moreFilters: function (event){
@@ -79,9 +92,10 @@ Hotspots.Views.Filter = Backbone.View.extend({
 	deleteFilter: function (event){
 		event.preventDefault();
 		var value = $(event.currentTarget).val();
+		var categ = event.currentTarget.classList[0];
 		$button = $(".filters button.filt[value = '" + value + "']");
 		$button.prop("disabled", false);
 		$(event.currentTarget).remove();
-		this.removeFilterItems(value);
+		this.removeFilterItems(value, categ);
 	}
 });
