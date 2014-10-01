@@ -7,9 +7,8 @@
 				<% end %>
 			</ul>
 		<% end %>
-		
 		<h1>Sign Up</h1>
-
+</br>
 		<form action="<%= users_url %>" method="POST">
 			<input 
 				type="hidden"
@@ -35,7 +34,7 @@
 				class="form-control">
 		</div>	
 				
-			<button type="submit" class="btn btn-primary">Sign up</button>
+			<button type="submit" class="btn btn-default btn-sm">Sign up</button>
 		</form>
 	</br>
 		Already a user? Click <%= link_to "here", new_session_url %> to sign-in.
