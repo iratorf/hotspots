@@ -22,7 +22,7 @@ Hotspots.Views.BusItem = Backbone.View.extend({
 		return this;
 	},
 	
-	handleRedirect: function (event) {	
+	handleRedirect: function (event) {
 		event.preventDefault();
 		var id = this.model.attributes.id;
 		Backbone.history.navigate(('/businesses/' + id), { trigger: true });

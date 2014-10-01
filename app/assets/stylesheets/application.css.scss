@@ -69,6 +69,14 @@ div.navbar-header{
 	color: white;
 }
 
+button.guest-login {
+	background-color: #00B26B;
+}
+
+.auth-form button.guest-login:hover{
+	background-color: #008E56;
+}
+
 .auth-form button:hover {
 	background-color: #CC4C4C;
 	color: white;
@@ -246,6 +254,12 @@ ul.tags {
 
 .glyphicon-star {
 	color: #FF5F5F;
+}
+
+.remove-review {
+	background-color: white;
+	border: 0;
+	color: #00B26B;
 }
 
 /* Right Pane (Bus Show) */
