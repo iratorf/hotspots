@@ -6,7 +6,7 @@
 		</a>
 	
 		<br>
-			
+
 	<div class="bus-info">
 	
 			<% if (business.escape('name').length > 20) { %>
@@ -21,16 +21,25 @@
 	
 		<br>
 	
-		<div class="bus-attr tag">
+	
+	<div class="row bus-attr tag">
+		<div class="col-xs-6">
 			<%= business.tags().first().escape('name')%>
-			<div class="rating pull-left">
-				<%= rating %>
-			</div>
-			<div class="price pull-right">
-				<% for(var i = 0; i < business.escape('price_range'); i++) { %>
-					<span class="glyphicon glyphicon-usd"></span>
-				<%}%>
-			</div>
+		</div>
+		
+		<div class="rating col-xs-4">
+			<% if (rating != 'No Reviews') { %>
+				<% for(var i = 0; i < rating; i++) {%>
+					<span class="glyphicon glyphicon-star"></span>
+			<% } } else {%>
+				No Reviews
+			<% } %>
+		</div>
+		
+		<div class="price col-xs-2">
+			<% for(var i = 0; i < business.escape('price_range'); i++) { %>
+				<span class="glyphicon glyphicon-usd"></span>
+			<%}%>
 		</div>
 	</div>
 	<% } %>
