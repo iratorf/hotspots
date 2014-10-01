@@ -56,7 +56,7 @@ end
   )
   
   Image.create(url: IMAGES.sample, business_id: (n + 1))
-  Tagging.create(tag_id: rand(1..10), business_id: (n + 1))
+  Tagging.create(tag_id: rand(1...10), business_id: (n + 1))
 end
 
 30.times do |n|

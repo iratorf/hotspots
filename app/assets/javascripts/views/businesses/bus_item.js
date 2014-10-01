@@ -10,6 +10,7 @@ Hotspots.Views.BusItem = Backbone.View.extend({
 	},
 	
 	render: function () {
+		debugger
 		var renderedContent = this.template({
 			business: this.model,
 			rating: this.model.rating()

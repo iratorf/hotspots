@@ -10,7 +10,7 @@ Hotspots.Routers.AppRouter = Backbone.Router.extend({
 	
 	searchIndex: function (params) {
 		
-		var city = params.substring(5).split('+').join(' ');
+		var city = params.substring(5).split('+').join(' ').toLowerCase();
 		
 		Hotspots.businesses.fetch({ data: { city: city }});
 		Hotspots.businesses.filters.city.length = 0;	
