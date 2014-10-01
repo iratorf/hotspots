@@ -1,5 +1,5 @@
 <li>
-	<div class="row">
+	<div class="row rev">
 		<div class="col-xs-2">
 			<img src="http://www.hakkalabs.co/assets/placeholder.png" class="user-pic img-circle">
 			<%= review.user().escape('email').match(/[^@]*/) %>
@@ -10,6 +10,11 @@
 		<div class="col-xs-10">
 			<% for (var i = 0; i < review.get('score'); i++) { %>
 				<span class="glyphicon glyphicon-star"></span>
+			<% } %>
+			<% if (Hotspots.currentUser.email === review.user().escape('email')){ %>
+				<button class="remove-review hidden">
+					<span class="glyphicon glyphicon-remove">
+				</button>
 			<% } %>
 		</br>
 			<%= review.escape("body") %>

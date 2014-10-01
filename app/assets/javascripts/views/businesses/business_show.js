@@ -11,6 +11,14 @@ Hotspots.Views.BusinessShow = Backbone.CompositeView.extend({
 		this.addReviewNew();
 	},
 	
+	events: {
+		"click .back":"navigateBack"
+	},
+	
+	navigateBack: function () {
+		history.back();
+	},
+	
 	clearDesign: function () {
 		$('body').removeClass('bg');
 		$('#main-search').addClass('hidden');

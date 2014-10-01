@@ -212,6 +212,14 @@ button > .glyphicon-search {
 	float: left;
 }
 
+button.back {
+	padding: 0;
+	background-color: white;
+	color: #FF5F5F;
+	border: 0;
+	font-size: 15px;
+}
+
 .show-info {
 	padding: 2%;
 }

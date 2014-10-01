@@ -23,6 +23,9 @@ module Api
     end
   
     def destroy
+      @review = current_user.reviews.find(params[:id])
+      @review.try(:destroy)
+      render json: {}
     end
   
     def review_params
