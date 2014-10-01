@@ -25,23 +25,65 @@ Hotspots.Views.Map = Backbone.View.extend({
 		return this;
 	},
 	
+	setMap: function (selector, options) {
+		this._map = new google.maps.Map(selector, options);
+		return this._map;
+	},
+	
+	getMap: function () {
+		return this._map;
+	},
+	
+	getMarkers: function (){
+		return this.markers;
+	},
+	
+	colorMarker: function (position){
+		var pinColor = "00B26B";
+		var pinImage = new google.maps.MarkerImage(
+			"http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|" + pinColor,
+		            new google.maps.Size(21, 34),
+		            new google.maps.Point(0,0),
+		            new google.maps.Point(10, 34));
+		var new_marker = new google.maps.Marker({ 
+			position: position, 
+			map: this._map,
+			icon: pinImage
+		});
+	},
+	
+	normalColor: function (position){
+		var pinColor = "FF5F5F";
+		var pinImage = new google.maps.MarkerImage(
+			"http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|" + pinColor,
+		            new google.maps.Size(21, 34),
+		            new google.maps.Point(0,0),
+		            new google.maps.Point(10, 34));
+		var new_marker = new google.maps.Marker({ 
+			position: position, 
+			map: this._map,
+			icon: pinImage
+		});
+		return new_marker;
+	},
+	
 	mapAll: function () {
     var mapOptions = {
       center: new google.maps.LatLng(
 				this.collection.first().escape('latitude'),
 				this.collection.first().escape('longitude')
 			), zoom: 14 };
-    var map = new google.maps.Map(this.$('#map-canvas')[0], mapOptions);
-		var markers =[];
+    var map = this.setMap(this.$('#map-canvas')[0], mapOptions);
+		this.markers =[];
 		this.collection.forEach(function(business){
 			var latLng = new google.maps.LatLng(
 				business.escape('latitude'),
 				business.escape('longitude')
 			);
-			var mark = new google.maps.Marker({ position: latLng, map: map });
-			markers.push(mark);
-		})
-		this.setBounds(markers, map);
+			var mark = this.normalColor(latLng);
+			this.markers.push(mark);
+		}.bind(this))
+		this.setBounds(this.markers, map);
 	},
 	
 	mapOne: function () {

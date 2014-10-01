@@ -1,12 +1,15 @@
 Hotspots.Views.BusItem = Backbone.View.extend({
 	template: JST['businesses/item'],
 	
-	initialize: function () {
-		this.listenTo(this.model, "sync", this.render)
+	initialize: function (options) {
+		this.listenTo(this.model, "sync", this.render);
+		this.mapView = options.mapView;
 	},
 	
 	events: {
-		"click .bus-item a": "handleRedirect"
+		"click .bus-item a": "handleRedirect",
+		"mouseover .bus-item a": "greenIcon",
+		"mouseout .bus-item a": "redIcon"
 	},
 	
 	render: function () {
@@ -23,5 +26,23 @@ Hotspots.Views.BusItem = Backbone.View.extend({
 		event.preventDefault();
 		var id = this.model.attributes.id;
 		Backbone.history.navigate(('/businesses/' + id), { trigger: true });
+	},
+	
+	greenIcon: function (event) {
+		var map = this.mapView.getMap();
+		var markers = this.mapView.getMarkers();
+		var idx = this.model.collection.indexOf(this.model);
+		var mark = markers[idx];
+		mark.setMap(null);
+		this.mapView.colorMarker(mark.position);
+	},
+	
+	redIcon: function (event) {
+		var map = this.mapView.getMap();
+		var markers = this.mapView.getMarkers();
+		var idx = this.model.collection.indexOf(this.model);
+		var mark = markers[idx];
+		mark.setMap(null);
+		this.mapView.normalColor(mark.position);
 	}
 });

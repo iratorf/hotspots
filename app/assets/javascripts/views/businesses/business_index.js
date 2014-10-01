@@ -1,15 +1,16 @@
 Hotspots.Views.BusinessesIndex = Backbone.CompositeView.extend({
 	template: JST["businesses/index"],
 	
-	initialize: function () {
+	initialize: function (options) {
 		this.listenTo(this.collection, "add", this.addBusItem);
 		this.listenTo(this.collection, "sync", this.render);
-		
+		this.mapView = options.mapView;
 	},
 	
 	addBusItem: function (business) {
 		var busItemView = new Hotspots.Views.BusItem({
-			model: business
+			model: business,
+			mapView: this.mapView
 		})
 		this.addSubview('.bus-items', busItemView)
 	},

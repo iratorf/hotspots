@@ -9,13 +9,14 @@ Hotspots.Views.SearchView = Backbone.CompositeView.extend({
 		$('.navbar-form').removeClass('hidden');
 		$('.navbar').removeClass('root');
 		
-		var businessesView = new Hotspots.Views.BusinessesIndex({
-			collection: this.collection
-		})
-		
 		var mapView = new Hotspots.Views.Map({
 			collection: this.collection
 		});
+		
+		var businessesView = new Hotspots.Views.BusinessesIndex({
+			collection: this.collection,
+			mapView: mapView
+		})
 		
 		var filterView = new Hotspots.Views.Filter({
 			collection: this.collection
