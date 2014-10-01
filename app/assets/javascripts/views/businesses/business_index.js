@@ -25,7 +25,6 @@ Hotspots.Views.BusinessesIndex = Backbone.CompositeView.extend({
 		var renderedContent = this.template({
 			businesses: this.collection
 		})
-		
 		this.$el.html(renderedContent);
 		this._subviews = {};
 		this.collection.each(this.addBusItem.bind(this));

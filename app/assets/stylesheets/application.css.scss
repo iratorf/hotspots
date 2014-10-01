@@ -49,11 +49,25 @@ body.bg {
 }
 
 .navbar-default .navbar-brand {
-	color: #FF4D4D;
+	color: #FF5F5F;
 }
 
 div.navbar-header{
-	color: #FF4D4D;
+	color: #FF5F5F;
+}
+
+.auth {
+	margin: 100px auto;
+	width: 30%;
+}
+
+.auth-form button {
+	color: white;
+}
+
+.auth-form button:hover {
+	background-color: #CC4C4C;
+	color: white;
 }
 
 #main-search {
@@ -116,11 +130,6 @@ body {
 /*	margin-right: 10%;*/
 }
 
-.auth {
-	margin: 100px auto;
-	width: 30%;
-}
-
 
 /* Side View (Search) */
 .display-listings {
@@ -173,15 +182,18 @@ button > .glyphicon-search {
 }
 
 .filt{
-	background-color: #FF4747;
+	background-color: #FF5F5F;
+	color: white;
 }
 
 .delete-filter {
-	background-color: #FF4D4D;
+	background-color: #FF5F5F;
+	color: white;
 }
 
 .btn-sm  {
-	background-color: #FF4D4D;
+	background-color: #FF5F5F;
+	color: white;
 	border: 0;
 }
 
@@ -221,7 +233,7 @@ ul.tags {
 }
 
 .glyphicon-star {
-	color: #FF4D4D;
+	color: #FF5F5F;
 }
 
 /* Right Pane (Bus Show) */

@@ -4,7 +4,8 @@ module Api
     def index
       businesses = Business.all #.includes(:tags, :images, :reviews)
       if params[:city]
-        businesses = businesses.where(city: params[:city])
+        city = params[:city].split.map(&:capitalize).join(' ')
+        businesses = businesses.where(city: city)
       end
       
       if params[:tags]

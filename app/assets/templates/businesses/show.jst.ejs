@@ -1,3 +1,9 @@
+<script>
+	String.prototype.capitalize = function () {
+		return this[0].toUpperCase + this.slice(1);
+	}
+</script>
+
 <div class="container">
 	<div class="show-main">
 		
@@ -7,9 +13,12 @@
 					<h3><%= business.escape("name") %></h3>
 					<ul class="address">
 						<li><%= business.escape("street") %></li>
-						<li><%= business.escape("city") %></li>
 						<li>
-							<%= business.escape("state") %>, <%= business.escape("zipcode") %>
+							<%= business.escape("city")%>
+						</li>
+						<li>
+							<%= business.escape("state") %>, 
+							<%= business.escape("zipcode") %>
 						</li>
 					</ul>
 				</div>

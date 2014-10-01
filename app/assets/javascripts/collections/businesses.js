@@ -33,7 +33,7 @@ Hotspots.Collections.Businesses = Backbone.Collection.extend({
 	filters: {
 		tags: [],
 		prices: [],
-		city: [],
+		city: "",
 		distance: []
 	}
 })

@@ -4,7 +4,7 @@ Hotspots.Views.Filter = Backbone.View.extend({
 	events: {
 		'click .current-filters button': 'deleteFilter',
 		'click .filters button.filt': 'addFilter',
-		'click .filters button.more-filt': 'moreFilters',
+		'click .filters button.toggle-type': 'toggleType',
 		'click .display-listings': 'hideFilters'
 	},
 	
@@ -81,8 +81,14 @@ Hotspots.Views.Filter = Backbone.View.extend({
 		return $button;
 	},
 	
-	moreFilters: function (event){
-		$('#more-filters').removeClass('hidden');
+	toggleType: function (event){
+		$('#more-types').toggleClass('hidden');
+		var caret = " <span class='caret'></span>";
+		if ($(event.currentTarget).text().trim() === "More Types") {
+			$(event.currentTarget).text("Less Types").append(caret);
+		} else {
+			$(event.currentTarget).text("More Types").append(caret);
+		}
 	},
 	
 	hideFilters: function (event){

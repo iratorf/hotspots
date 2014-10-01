@@ -37,7 +37,29 @@ TAGS = [
   "Comedy Club",
 ]
 
+REVIEWS = [
+  "lauter lauter sparge; conditioning tank, hefe conditioning tank amber abbey. crystal malt caramel malt pitch. brew infusion ester keg amber carbonation saccharification. lagering amber adjunct. mash pitching dextrin additive cask conditioned ale hoppy. aerobic pub acid rest pub bung primary fermentation.",
+  "secondary fermentation hefe aroma hops, biere de garde imperial wit. enzymes cold filter wort chiller squares, cask conditioning aroma hops.",
+  "krausen imperial malt gravity draft (draught? becher abv degrees plato hop back: keg, caramel malt! wort top-fermenting yeast.",
+  "black malt racking dextrin pitching hydrometer grainy carboy seidel, berliner weisse berliner weisse! draft (draught) pitch original gravity saccharification reinheitsgebot adjunct. brewhouse carboy bitter pilsner bright beer chocolate malt brew kettle. barleywine saccharification primary fermentation rims sparge. mead hoppy terminal gravity attenuation becher,  tulip glass primary fermentation.",
+  "black malt racking dextrin pitching hydrometer grainy carboy seidel, berliner weisse berliner weisse! draft (draught) pitch original gravity saccharification reinheitsgebot adjunct. brewhouse carboy bitter pilsner bright beer chocolate malt brew kettle. barleywine saccharification primary fermentation rims sparge. mead hoppy terminal gravity attenuation becher, tulip glass primary fermentation."
+]
+
+EMAILS = [
+  "john@email.com",
+  "amy@email.com",
+  "sam@email.com",
+  "mark@email.com"
+]
+
 User.create(email: 'guest@guestlogin.com', password: 'guest1234')
+
+4.times do |n|
+  User.create(
+  email: EMAILS[n],
+  password: "sample"
+  )
+end
 
 10.times do |n|
   Tag.create(name: TAGS[n])
@@ -47,8 +69,8 @@ end
   Business.create(
     name: Faker::Company.name,
     street: Faker::Address.street_address,
-    city: 'san francisco',
-    state: 'california',
+    city: 'San Francisco',
+    state: 'California',
     zipcode: (94100 + rand(10..99)),
     price_range: rand(1..4),
     latitude: rand(37.75..37.80),
@@ -63,8 +85,8 @@ end
   Business.create(
     name: Faker::Company.name,
     street: Faker::Address.street_address,
-    city: 'los angeles',
-    state: 'california',
+    city: 'Los Angeles',
+    state: 'California',
     zipcode: (90000 + rand(10..99)),
     price_range: rand(1..4),
     latitude: rand(33.76..34.14),
@@ -72,6 +94,14 @@ end
   )
   
   Image.create(url: IMAGES.sample, business_id: (n + 31))
-  Tagging.create(tag_id: rand(1..10), business_id: (n + 31))
+  Tagging.create(tag_id: rand(1...10), business_id: (n + 31))
 end
 
+120.times do |n|
+  Review.create(
+  body: REVIEWS.sample,
+  business_id: rand(1..60),
+  score: rand(1..5),
+  user_id: rand(1..5)
+  )
+end
