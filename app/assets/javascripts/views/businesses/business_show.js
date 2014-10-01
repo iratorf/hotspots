@@ -12,7 +12,8 @@ Hotspots.Views.BusinessShow = Backbone.CompositeView.extend({
 	},
 	
 	events: {
-		"click .back":"navigateBack"
+		"click .back":"navigateBack",
+		"submit #new-review": "handleSubmit"
 	},
 	
 	navigateBack: function () {
@@ -27,6 +28,10 @@ Hotspots.Views.BusinessShow = Backbone.CompositeView.extend({
 		$('.navbar').removeClass('root');
 	},
 	
+	handleSubmit: function (event) {
+		this.reviewNew.handleSubmit(event);
+	},
+	
 	addReviewsIndex: function () {
 		var reviewsIndex = new Hotspots.Views.ReviewsIndex({
 			collection: this.model.reviews(),
@@ -36,10 +41,10 @@ Hotspots.Views.BusinessShow = Backbone.CompositeView.extend({
 	},
 	
 	addReviewNew: function () {
-		var reviewNew = new Hotspots.Views.ReviewNew({
+		this.reviewNew = new Hotspots.Views.ReviewNew({
 			model: this.model
 		})
-		this.addSubview('.show-side', reviewNew);
+		this.addSubview('.show-side', this.reviewNew);
 	},
 	
 	addMap: function () {

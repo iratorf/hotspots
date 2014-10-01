@@ -59,8 +59,64 @@
 		
 		<div class="reviews"></div>
 	</div>
+	
+	<!-- Modal -->
+	<div class="modal fade" id="reviewModal" tabindex="-1" role="dialog" aria-labelledby="reviewModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+				<form id="new-review">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+	        <h4 class="modal-title" id="reviewModalLabel">Write A Review</h4>
+	      </div>
+	      <div class="modal-body">
+						<textarea
+							name="review[body]"
+							id="review_body"></textarea>
 
+						</br>
+						<label>Rating</label>
+						<input 
+							type="radio" 
+							name="review[score]" 
+							value="1" 
+							class="rate">1</input>
 
+						<input 
+							type="radio" 
+							name="review[score]"
+							value="2" 
+							class="rate">2</input>
+
+						<input 
+							type="radio" 
+							name="review[score]" 
+							value="3" 
+							class="rate">3</input>
+
+						<input 
+							type="radio" 
+							name="review[score]" 
+							value="4" 
+							class="rate">4</input>
+
+						<input 
+							type="radio" 
+							name="review[score]" 
+							value="5" 
+							class="rate">5</input>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					<button type="submit" class="review btn btn-default btn-sm">
+					Post Review
+					</button>
+	      </div>
+			</form>
+	    </div>
+	  </div>
+	</div>
+	
 	<div class="show-side">
 	</div>
 </div>

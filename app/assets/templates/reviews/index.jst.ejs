@@ -1,6 +1,8 @@
 <% if (business.rating() === "No Reviews") { %>
 	<h4> No Reviews </h4>
-	<button class="btn btn-default btn-sm">Write the First One</button>
+	<button class="btn btn-default btn-sm" data-toggle="modal" data-target="#reviewModal">
+	  Write A Review
+	</button>
 <% } else { %>
 	<h4><%= reviews.length %> Reviews
 		<% for(var i = 0; i < business.rating(); i++) {%>

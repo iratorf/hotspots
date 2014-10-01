@@ -76,8 +76,9 @@ end
     latitude: rand(37.75..37.80),
     longitude: rand(-122.44..-122.39) 
   )
-  
-  Image.create(url: IMAGES.sample, business_id: (n + 1))
+  3.times do
+    Image.create(url: IMAGES.sample, business_id: (n + 1))
+  end
   Tagging.create(tag_id: rand(1...10), business_id: (n + 1))
 end
 
@@ -92,8 +93,9 @@ end
     latitude: rand(33.76..34.14),
     longitude: rand(-118.45..-118.01) 
   )
-  
-  Image.create(url: IMAGES.sample, business_id: (n + 31))
+  3.times do
+    Image.create(url: IMAGES.sample, business_id: (n + 31))
+  end
   Tagging.create(tag_id: rand(1...10), business_id: (n + 31))
 end
 

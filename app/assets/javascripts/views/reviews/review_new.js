@@ -4,12 +4,16 @@ Hotspots.Views.ReviewNew = Backbone.View.extend({
 	className: 'new-review',
 	
 	events: {
-		"submit #new-review": "handleSubmit"
+		"submit #new-review": "handleSubmit",
+		"click button.review": "handleSubmit"
 		
 	},
 	
 	handleSubmit: function (event) {
 		event.preventDefault();
+		
+		$('#reviewModal').modal('hide');
+		$('.modal-backdrop').remove();
 		
 		var params = $(event.currentTarget).serializeJSON().review;
 		
