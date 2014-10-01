@@ -47,8 +47,8 @@ end
   Business.create(
     name: Faker::Company.name,
     street: Faker::Address.street_address,
-    city: 'San Francisco',
-    state: 'California',
+    city: 'san francisco',
+    state: 'california',
     zipcode: (94100 + rand(10..99)),
     price_range: rand(1..4),
     latitude: rand(37.75..37.80),
@@ -63,8 +63,8 @@ end
   Business.create(
     name: Faker::Company.name,
     street: Faker::Address.street_address,
-    city: 'Los Angeles',
-    state: 'California',
+    city: 'los angeles',
+    state: 'california',
     zipcode: (90000 + rand(10..99)),
     price_range: rand(1..4),
     latitude: rand(33.76..34.14),

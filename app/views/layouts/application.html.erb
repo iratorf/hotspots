@@ -17,10 +17,11 @@
 
 	<%= yield %>
 
-
 	<script>
 		$(document).ready(function(){
 		  Hotspots.initialize();
+			var currentUser = currentUser || JSON.parse('<%= current_user.to_json.html_safe %>');
+			Hotspots.currentUser = currentUser;
 		});
 	</script>
 

@@ -30,19 +30,21 @@ Hotspots.Views.Map = Backbone.View.extend({
       center: new google.maps.LatLng(
 				this.collection.first().escape('latitude'),
 				this.collection.first().escape('longitude')
-			), zoom: 12 };
+			), zoom: 14 };
     var map = new google.maps.Map(this.$('#map-canvas')[0], mapOptions);
+		var markers =[];
 		this.collection.forEach(function(business){
 			var latLng = new google.maps.LatLng(
 				business.escape('latitude'),
 				business.escape('longitude')
 			);
-			new google.maps.Marker({ position: latLng, map: map });
+			var mark = new google.maps.Marker({ position: latLng, map: map });
+			markers.push(mark);
 		})
+		this.setBounds(markers, map);
 	},
 	
 	mapOne: function () {
-
     var mapOptions = {
       center: new google.maps.LatLng(
 				this.model.escape('latitude'),
@@ -54,6 +56,14 @@ Hotspots.Views.Map = Backbone.View.extend({
 			this.model.escape('longitude')
 		)
 		new google.maps.Marker({ position: latLng, map: map });	
-
+	},
+	
+	setBounds: function (markers, map) {
+		var bounds = new google.maps.LatLngBounds();
+		for (var i = 0; i < markers.length; i++){
+			bounds.extend(markers[i].getPosition());
+		}
+		
+		map.fitBounds(bounds);
 	}
 });
