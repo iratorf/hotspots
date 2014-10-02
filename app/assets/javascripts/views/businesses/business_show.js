@@ -55,7 +55,6 @@ Hotspots.Views.BusinessShow = Backbone.CompositeView.extend({
 	},
 	
 	render: function () {
-		debugger
 		var renderedContent = this.template({
 			business: this.model,
 			rating: this.model.rating(),

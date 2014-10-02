@@ -7,10 +7,6 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 require 'faker'
 
-IMAGES = [
-  "/assets/nightlife"
-]
-
 TAGS = [
   "Bar",
   "Lounge",

@@ -1,13 +1,15 @@
 <li>
-	<div class="row rev">
-		<div class="col-xs-2">
-			<img src="http://www.hakkalabs.co/assets/placeholder.png" class="user-pic img-circle">
-			<%= review.user().escape('email').match(/[^@]*/) %>
+	<div class="row">
+		<div class="col-xs-2 rev-info">
 			<% date = new Date(review.escape('created_at')) %>
 			<%= date.toLocaleDateString() %>
+		</br>
+			<img src="http://www.hakkalabs.co/assets/placeholder.png" class="user-pic img-circle">
+		</br>
+			<%= review.user().escape('email').match(/[^@]*/) %>
 		</div>
 		
-		<div class="col-xs-10">
+		<div class="col-xs-10 rev">
 			<% for (var i = 0; i < review.get('score'); i++) { %>
 				<span class="glyphicon glyphicon-star"></span>
 			<% } %>

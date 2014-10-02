@@ -41,8 +41,8 @@ Hotspots.Views.Map = Backbone.View.extend({
 	colorMarker: function (position){
 		var pinColor = "00B26B";
 		var pinImage = new google.maps.MarkerImage(
-			"http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|" + pinColor,
-		            new google.maps.Size(21, 34),
+			"/assets/beer-icon-green.png",
+		            new google.maps.Size(30, 35),
 		            new google.maps.Point(0,0),
 		            new google.maps.Point(10, 34));
 		var new_marker = new google.maps.Marker({ 
@@ -55,8 +55,8 @@ Hotspots.Views.Map = Backbone.View.extend({
 	normalColor: function (position){
 		var pinColor = "FF5F5F";
 		var pinImage = new google.maps.MarkerImage(
-			"http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|" + pinColor,
-		            new google.maps.Size(21, 34),
+			"/assets/beer-icon-red.png",
+		            new google.maps.Size(30, 35),
 		            new google.maps.Point(0,0),
 		            new google.maps.Point(10, 34));
 		var new_marker = new google.maps.Marker({ 

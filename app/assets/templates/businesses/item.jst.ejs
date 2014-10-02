@@ -16,7 +16,11 @@
 				<% } %>
 	
 			<a href="#" class="bus-name bus-address">
-				<%= business.escape('street') %>
+				<% if (business.escape('street').length > 20) { %>
+						<%= business.escape('street').substr(0, 20) %>...
+					<% } else { %>
+						<%= business.escape('street') %>
+					<% } %>
 			</a>
 	
 			<br>
