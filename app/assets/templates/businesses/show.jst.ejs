@@ -4,7 +4,32 @@
 	}
 </script>
 
-<div class="container">
+<div class="container business">
+	<!--Carousel -->
+		<div id="pic-carousel" class="carousel slide" data-ride="carousel">
+
+			<% if (business.images().length > 0) { %>
+				<div class="carousel-inner">
+					<% for (var i = 0; i < business.images().length; i++) {%>
+						<% if (i === 0){ %>
+						<div class="item active">	
+						<% } else {%>
+				    <div class="item">
+						<% } %>
+				      <img src="<%= business.images().models[i].attributes.url %>" class="profile-pic">
+				    </div>
+					<% } %>
+				</div>
+			<% } %>
+		  <!-- Controls -->
+		  <a class="left carousel-control" href="#pic-carousel" role="button" 					data-slide="prev">
+		    <span class="glyphicon glyphicon-chevron-left"></span>
+		  </a>
+		  <a class="right carousel-control" href="#pic-carousel" role="button" 					data-slide="next">
+		    <span class="glyphicon glyphicon-chevron-right"></span>
+		  </a>
+		</div>
+	
 	<div class="show-main">
 		<button class="back">
 			<span class="glyphicon glyphicon-arrow-left"></span>
@@ -12,7 +37,35 @@
 		<div class="show-info">
 			<div class="row">
 				<div class="col-xs-7">
-					<h3><%= business.escape("name") %></h3>
+					<h4><%= business.escape("name") %>
+						<% for(var i = 0; i < business.escape('price_range'); i++) { %>
+						<span class="glyphicon glyphicon-usd"></span>
+					<%}%></h4>
+					<h4 class="rating">
+						<% if (business.rating() === "No Reviews") { %>
+							<h5> No Reviews </h5>
+						<% } else { %>
+							<% if (this.model.reviews() && this.model.reviews().length >0) {%>
+							<% for(var i = 0; i < business.rating(); i++) {%>
+								<span class="glyphicon glyphicon-star"></span>
+						<% } %>
+							(<%= numReviews %>)
+							<% }} %>
+					</h4>
+					<div class="tags">
+						<% if (business.tags().length > 0) { %>
+							<% for (var i = 0; i < business.tags().length; i++){ %>
+								<% if (i === 0) {%>
+							<%= business.tags().models[i].attributes.name %>
+							<% } else { %>
+								&middot <%= business.tags().models[i].attributes.name %>
+							<% }} %>
+						<% } %>
+					</div>
+				</div>
+				
+				<div class="col-xs-5">
+				</br>
 					<ul class="address">
 						<li><%= business.escape("street") %></li>
 						<li>
@@ -24,39 +77,19 @@
 						</li>
 					</ul>
 				</div>
-				
-				<div class="col-xs-5">
-					<h3 class="rating">
-						<% if (business.rating() === "No Reviews") { %>
-							<h4> No Reviews </h4>
-						<% } else { %>
-							<% if (this.model.reviews() && this.model.reviews().length >0) {%>
-							<% for(var i = 0; i < business.rating(); i++) {%>
-								<span class="glyphicon glyphicon-star"></span>
-						<% } %>
-							(<%= numReviews %>)
-							<% }} %>
-					</h4>
-					
-					<% for(var i = 0; i < business.escape('price_range'); i++) { %>
-						<span class="glyphicon glyphicon-usd"></span>
-					<%}%>
-					<ul class="tags">
-						<% if (business.tags().length > 0) { %>
-							<% business.tags().forEach(function (tag) { %>
-							<li><%= tag.escape('name') %></li>
-							<% }) %>
-						<% } %>
-					</ul>
-				</div>
 			</div>
 		</div>
 	<hr>
-		<% if (business.images().length > 0) { %>
-			<img src="<%= business.images().first().escape("url") %>" 
-			class="profile-pic">
-		<% } %>
+	
+	<div class="description">
+		<div class="row">
+			<div class="col-xs-3"><h5>Description</h5></div>
+			<div class="col-xs-9"><%= business.escape('description') %></div>
+		</div>
+	</div>
 		
+		<hr>
+<!--reviews -->
 		<div class="reviews"></div>
 	</div>
 	
