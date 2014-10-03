@@ -1,52 +1,52 @@
-<li class="bus-item pull-left">
-	
-	<% if (business.images().length > 0) {  %>
-		<a href="#" class="bus-item-img">
-			<img src="<%= business.images().first().escape('url') %>">
+
+
+<% if (business.images().length > 0) {  %>
+	<a href="#" class="bus-item-img">
+		<img src="<%= business.images().first().escape('url') %>">
+	</a>
+
+	<br>
+
+<div class="bus-info">
+
+		<% if (business.escape('name').length > 20) { %>
+				<a class="bus-name"><%= business.escape('name').substr(0, 20) %>...</a>
+			<% } else { %>
+				<a class="bus-name"><%= business.escape('name') %></a>
+			<% } %>
+
+		<a href="#" class="bus-name bus-address">
+			<% if (business.escape('street').length > 20) { %>
+					<%= business.escape('street').substr(0, 20) %>...
+				<% } else { %>
+					<%= business.escape('street') %>
+				<% } %>
 		</a>
-	
+
 		<br>
 
-	<div class="bus-info">
-	
-			<% if (business.escape('name').length > 20) { %>
-					<a class="bus-name"><%= business.escape('name').substr(0, 20) %>...</a>
-				<% } else { %>
-					<a class="bus-name"><%= business.escape('name') %></a>
-				<% } %>
-	
-			<a href="#" class="bus-name bus-address">
-				<% if (business.escape('street').length > 20) { %>
-						<%= business.escape('street').substr(0, 20) %>...
-					<% } else { %>
-						<%= business.escape('street') %>
-					<% } %>
-			</a>
-	
-			<br>
-	
-	
-		<div class="row bus-attr tag">
-			<div class="col-xs-6">
-			<% if (business.tags()) { %>
-				<%= business.tags().first().escape('name')%>
-			</div>
-		
-			<div class="rating col-xs-4">
-				<% if (rating != 'No Reviews') { %>
-					<% for(var i = 0; i < rating; i++) {%>
-						<span class="glyphicon glyphicon-star"></span>
-				<% } } else {%>
-					No Reviews
-				<% } %>
-			</div>
-		
-			<div class="price col-xs-2">
-				<% for(var i = 0; i < business.escape('price_range'); i++) { %>
-					<span class="glyphicon glyphicon-usd"></span>
-				<%}%>
-			</div>
+
+	<div class="row bus-attr tag">
+		<div class="col-xs-6">
+		<% if (business.tags()) { %>
+			<%= business.tags().first().escape('name')%>
 		</div>
+	
+		<div class="rating col-xs-4">
+			<% if (rating != 'No Reviews') { %>
+				<% for(var i = 0; i < rating; i++) {%>
+					<span class="glyphicon glyphicon-star"></span>
+			<% } } else {%>
+				No Reviews
+			<% } %>
+		</div>
+	
+		<div class="price col-xs-2">
+			<% for(var i = 0; i < business.escape('price_range'); i++) { %>
+				<span class="glyphicon glyphicon-usd"></span>
+			<%}%>
+		</div>
+	</div>
 		<% } %>
 	<% } %>
-</li>
+

@@ -1,6 +1,8 @@
 Hotspots.Views.Filter = Backbone.View.extend({
 	template: JST["filter"],
 	
+	className: 'filter',
+	
 	events: {
 		'click .current-filters button': 'deleteFilter',
 		'click .filters button.filt': 'addFilter',

@@ -1,6 +1,8 @@
 Hotspots.Views.SearchView = Backbone.CompositeView.extend({
 	template: JST["search"],
 	
+	className: "search",
+	
 	initialize: function () {
 		
 		$('body').removeClass('bg');
@@ -22,10 +24,9 @@ Hotspots.Views.SearchView = Backbone.CompositeView.extend({
 		var filterView = new Hotspots.Views.Filter({
 			collection: this.collection
 		});
-		
-		this.addSubview('.bus-lists', businessesView);
 		this.addSubview('.map', mapView);
-		this.addSubview('.filter', filterView);
+		this.addSubview('.display-listings', filterView);
+		this.addSubview('.display-listings', businessesView);
 	},
 	
 	render: function () {

@@ -6,6 +6,10 @@ Hotspots.Views.BusItem = Backbone.View.extend({
 		this.mapView = options.mapView;
 	},
 	
+	tagName: "li",
+	
+	className: "bus-item pull-left",
+	
 	events: {
 		"click .bus-item a": "handleRedirect",
 		"mouseover .bus-item a": "greenIcon",
