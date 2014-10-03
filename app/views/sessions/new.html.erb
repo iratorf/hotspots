@@ -44,8 +44,6 @@
 	$('button.guest-login').on("click", function (event){
 		event.preventDefault();
 	
-		console.log(event.currentTarget);
-	
 		$form = $(event.currentTarget).parent();
 		$email = $form.find('input#user_email');
 		$password = $form.find('input#user_password');

@@ -102,6 +102,30 @@ end
   end
 end
 
+30.times do |n|
+  Business.create(
+    name: Faker::Company.name,
+    street: Faker::Address.street_address,
+    city: 'New York',
+    state: 'New York',
+    zipcode: (10000 + rand(10..99)),
+    price_range: rand(1..4),
+    latitude: rand(40.711414..40.769423),
+    longitude: rand(-74.008369..-73.975754),
+    description: DESCRIPTIONS.sample 
+  )
+  3.times do
+    Image.create(
+      url: ("/assets/nightlife" + rand(1..20).to_s + ".jpg"), 
+      business_id: (n + 61)
+    )
+  end
+  
+  3.times do 
+    Tagging.create(tag_id: rand(1...10), business_id: (n + 61))
+  end
+end
+
 120.times do |n|
   Review.create(
   body: REVIEWS.sample,

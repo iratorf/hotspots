@@ -26,6 +26,7 @@ Hotspots.Views.BusinessShow = Backbone.CompositeView.extend({
 		$('body').addClass('main');
 		$('.navbar-form').removeClass('hidden');
 		$('.navbar').removeClass('root');
+		$('.home').addClass('hidden');
 	},
 	
 	handleSubmit: function (event) {

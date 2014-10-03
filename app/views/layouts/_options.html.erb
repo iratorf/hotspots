@@ -2,16 +2,30 @@
 	Explore Local Nightlife
 	<div class="row">
 		<div class="col-xs-4 root-img">
-			<img src="assets/san-fran-night.jpg">
-			<div class="root-text">San Francisco</div>
+			<a><img src="assets/san-fran-night.jpg">
+				<div class="root-text">San Francisco</div>
+			</a>
 		</div>
 		<div class="col-xs-4 root-img">
-			<img src="assets/Los-Angeles.jpg">
-			<div class="root-text">Los Angeles</div>
+			<a><img src="assets/Los-Angeles.jpg">
+				<div class="root-text">Los Angeles</div>
+			</a>
 		</div>
 		<div class="col-xs-4 root-img">
-			<img src="assets/new-york.jpeg">
-			<div class="root-text">New York</div>
+			<a><img src="assets/new-york.jpeg">
+				<div class="root-text">New York</div>
+			</a>
 		</div>
 	</div>
 </div>
+
+<script>
+		$('.root-img > a').on('click', function (event){
+			event.preventDefault();
+			$form = $('#main-search');
+			$input = $form.find('input');
+			city = $(event.currentTarget).find('div').text();
+			$input.val(city);
+			$form.submit();
+		})
+</script>
