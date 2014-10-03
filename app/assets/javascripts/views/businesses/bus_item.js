@@ -11,9 +11,9 @@ Hotspots.Views.BusItem = Backbone.View.extend({
 	className: "bus-item pull-left",
 	
 	events: {
-		"click .bus-item a": "handleRedirect",
-		"mouseover .bus-item a": "greenIcon",
-		"mouseout .bus-item a": "redIcon"
+		"click a": "handleRedirect",
+		"mouseover a": "greenIcon",
+		"mouseout a": "redIcon"
 	},
 	
 	render: function () {
@@ -27,6 +27,7 @@ Hotspots.Views.BusItem = Backbone.View.extend({
 	},
 	
 	handleRedirect: function (event) {
+		debugger
 		event.preventDefault();
 		var id = this.model.attributes.id;
 		Backbone.history.navigate(('/businesses/' + id), { trigger: true });
