@@ -17,15 +17,15 @@ module Api
         businesses = businesses.where(price_range: params[:prices])
       end
       
-      if params[:distance]
-        distance = params[:distance].sort[-1]
+      # if params[:distance]
+        # distance = params[:distance].sort[-1]
         #geolocator
-        businesses = businesses.near(request.location, distance)
+        # businesses = businesses.near(request.location, distance)
         #LS
         # businesses = businesses.near([33.984631, -118.276062], distance)
         #SF
         # businesses = businesses.near([37.791209, -122.415762], distance)
-      end
+      # end
       @businesses = businesses
 
       # render :index

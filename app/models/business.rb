@@ -18,7 +18,7 @@
 
 class Business < ActiveRecord::Base
   validates :name, :street, :city, :state, :zipcode, presence: true
-  after_validation :geocode
+  # after_validation :geocode
   
   has_many :taggings, dependent: :destroy
   has_many :tags, through: :taggings
