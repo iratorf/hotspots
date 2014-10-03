@@ -282,7 +282,7 @@ button > .glyphicon-search {
 
 .current-filters button {
 	min-width: 100px;
-	margin: 5px;
+	margin: 3px;
 }
 
 .errors {
@@ -297,6 +297,7 @@ button > .glyphicon-search {
 .delete-filter {
 	background-color: #FF5F5F;
 	color: white;
+	margin: 0;
 }
 
 .btn-sm  {
@@ -304,6 +305,25 @@ button > .glyphicon-search {
 	color: white;
 	border: 0;
 	height: 34px;
+}
+
+.cur-filters.fixed {
+	position: fixed;
+	padding: 20px;
+	padding-left: 4px;
+	margin: 0;
+	background-color: #E5E5E5;
+	top: 7.3%;
+	left: 40%;
+	z-index: 1000;
+	width: 100%;
+	max-height: 100%;
+}
+
+.cur-filters.fixed .col-xs-3 {
+	position: relative;
+	top: 50%;
+	max-width: 15%;
 }
 
 /* Business Show Page */

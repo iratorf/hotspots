@@ -88,13 +88,30 @@
 	<hr>
 	
 </div>
-	<div class="row">	
-		<div class="col-xs-2">
+	<div class="row cur-filters">	
+		<div class="col-xs-3">
 		Filters
 		</div>
-		
 		<div class="current-filters">
-			<div class="col-xs-10 delete-filters">
+			<div class="col-xs-8 delete-filters">
 			</div>
 		</div>
 	</div>
+	
+	<script>
+	$(function () {
+		$filtersRow = $('.cur-filters');
+		var pos = $filtersRow.offset();
+		
+		$('.display-listings').scroll(function (){
+			if ($(this).scrollTop() > pos.top - 65 && 
+				$filtersRow.css('position') === 'static' && 
+				$('.delete-filters').children().length > 0) {
+					$filtersRow.addClass('fixed');
+			} else if ($(this).scrollTop() <= pos.top - 65 && 
+				$filtersRow.hasClass('fixed')) {
+					$filtersRow.removeClass('fixed');
+				}
+		})
+	})
+	</script>
