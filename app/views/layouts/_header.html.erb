@@ -13,7 +13,7 @@
 			
       <form class="navbar-form navbar-left hidden" role="search">
         <div class="form-group">
-          <input type="text" class="form-control" name="city" placeholder="Search By City">
+          <input id="nav-search" type="text" class="form-control" name="city" placeholder="Search By City">
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
@@ -43,6 +43,34 @@
 
 <script>
 	$(function(){
+		var cities = [
+			{
+				value: "San Francisco, CA",
+				label: "San Francisco, CA",
+			},
+			{
+				value: "Los Angeles, CA",
+				label: "Los Angeles, CA",
+			},
+			{
+				value: "New York, CA",
+				label: "New York, CA",
+			}
+		]
+	
+		$("#nav-search").autocomplete({
+			minLength: 0,
+			source: cities,
+			focus: function (event, ui) {
+				$('#nav-search').val(ui.item.label);
+				return false;
+			},
+			select: function (event, ui) {
+				$('#nav-search').val(ui.item.label);
+				return false
+			}
+		})
+		
 		$('.navbar-form > button').on("click", function (event){
 			event.preventDefault();
 			city = $('.navbar-form input').serialize();
