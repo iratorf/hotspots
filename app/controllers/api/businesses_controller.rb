@@ -2,7 +2,7 @@ module Api
   class BusinessesController < ApplicationController
   
     def index
-      businesses = Business.all #.includes(:tags, :images, :reviews)
+      businesses = Business.all.includes(:tags, :images, :reviews)
       if params[:city]
         city = params[:city].split.map(&:capitalize).join(' ')
         businesses = businesses.where(city: city)

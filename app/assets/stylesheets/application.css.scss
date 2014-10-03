@@ -60,9 +60,9 @@ hr {
 .root-options {
 	color: #585858;
 	position: absolute;
-	display: block;
-	top: 85%;
-	height: 75%;
+/*	display: block;*/
+	top: 100%;
+	height: 80%;
 	width: 100%;
 	background-color: white;
 	text-align: center;
@@ -122,9 +122,15 @@ div.navbar-header:hover{
 	color: #CC4C4C;
 }
 
+.jumbotron {
+	background: transparent;
+}
+
 .auth {
-	margin: 25px auto;
+	margin:  auto;
 	width: 30%;
+	background: transparent;
+	color: #FF5F5F;
 }
 
 .auth h1{

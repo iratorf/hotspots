@@ -12,6 +12,7 @@ module Api
       if @review.save
         render json: @review, include: [:user]
       else
+        flash.now[:notices] = @reviews.errors.full_messages
         render json: @review.errors.full_messages, status: :unprocessable_entity
       end
     end

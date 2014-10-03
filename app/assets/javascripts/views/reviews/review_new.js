@@ -12,13 +12,18 @@ Hotspots.Views.ReviewNew = Backbone.View.extend({
 	handleSubmit: function (event) {
 		event.preventDefault();
 		
-		$('#reviewModal').modal('hide');
-		$('.modal-backdrop').remove();
-		
 		var params = $(event.currentTarget).serializeJSON().review;
 		
 		params.business_id = this.model.id;
 		params.score = parseInt(params.score, 10);
+		
+		if (isNaN(params.score) || params.body === ""){
+			window.alert("Both a review body and rating are required");
+			return;
+		}
+		
+		$('#reviewModal').modal('hide');
+		$('.modal-backdrop').remove();
 		
 		var newReview = new Hotspots.Models.Review(params);
 		
