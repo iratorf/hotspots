@@ -4,7 +4,7 @@ Hotspots.Views.BusinessShow = Backbone.CompositeView.extend({
 	initialize: function () {
 		this.clearDesign();
 		this.listenTo(this.model, 'sync', this.render);
-		this.listenTo(this.model.reviews(), 'sync add', this.render);
+		// this.listenTo(this.model.reviews(), 'sync add', this.render);
 		
 		this.addReviewsIndex();
 		this.addMap();

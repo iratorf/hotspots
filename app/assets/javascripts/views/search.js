@@ -8,6 +8,7 @@ Hotspots.Views.SearchView = Backbone.CompositeView.extend({
 		$('body').addClass('main');
 		$('.navbar-form').removeClass('hidden');
 		$('.navbar').removeClass('root');
+		$('.home').addClass('hidden');
 		
 		var mapView = new Hotspots.Views.Map({
 			collection: this.collection

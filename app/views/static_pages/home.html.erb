@@ -1,13 +1,28 @@
-<div class="main">
+	<div class="main">
+	</div>
+<div class="home">
+	
+	<div class="root-search">
+		
+	</div>
+	
+	
+	<form id="main-search" class="">
+		<div class="search-text">What's Your Plan Tonight?</div>
+	</br>
+		<input class="form-control" type="text" name="city" placeholder="Enter A Location">
+		<button type="submit" class="btn btn-default btn-sm">Search</button>
+	</form>
+	<div class="root-options">
+		<%= render "layouts/options" %>
+	</div>
+<!--footer -->
+
 </div>
-
-<form id="main-search" class="">
-	<input type="text" name="city" placeholder="Enter A Location">
-	<button type="submit" class="btn btn-default btn-sm">Search</button>
-</form>
-
 <script>
-
+	$('body').removeClass('bg');
+	$('#yield').addClass('container');
+	
 	$('#main-search').on("submit", function (event){
 		event.preventDefault();
 		$input = $(event.currentTarget).find('input');

@@ -25,13 +25,64 @@
 /*Home Page And NavBar*/
 
 body.bg { 
-  background: url(http://sohailmamdani.com/wp-content/uploads/2012/09/MG_6790-Edit.jpg) no-repeat center center fixed; 
+  background: url("sf-skyline.jpg") no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
 }
 
+hr {
+    border: 0;
+    height: 1px;
+    background: #B2B2B2;
+    background-image: -webkit-linear-gradient(left, #ccc, #B2B2B2, #ccc); 
+    background-image:    -moz-linear-gradient(left, #ccc, #B2B2B2, #ccc); 
+    background-image:     -ms-linear-gradient(left, #ccc, #B2B2B2, #ccc); 
+    background-image:      -o-linear-gradient(left, #ccc, #B2B2B2, #ccc); 
+}
+
+.home {
+}
+
+.root-search {
+	height: 500px;
+	width: 100%;
+	background: url("sf-skyline.jpg") no-repeat center center fixed;
+/*	background-color: black;*/
+	background-size: cover;
+	position: absolute;
+	top: 0;
+}
+
+.root-options {
+	color: #585858;
+	position: absolute;
+	display: block;
+	top: 100%;
+	height: 100%;
+	width: 100%;
+	background-color: white;
+	text-align: center;
+	font-size: 30px;
+}
+
+div.root-img {
+	padding: 10px;
+	position: relative;
+}
+
+div.root-text {
+	position: absolute;
+	top: 40%;
+	left: 25%;
+	color: white;
+}
+
+.search-text {
+	font-size: 30px;
+	color: white;
+}
 .navbar-default .navbar-nav > li > a {
 	color: #FF4747;
 }
@@ -44,6 +95,7 @@ body.bg {
 	margin: 0px;
 	background-color: transparent;
 	border: 0;
+	position: fixed;
 }
 
 .navbar {
@@ -260,14 +312,14 @@ button.back {
 .show-info {
 	padding: 2%;
 	font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
-	font-size: 20px;
+	font-size: 18px;
 	color: #4A4A4A;
 }
 
 ul.address {
 	padding: 0;
 	margin: 0;
-	font-size: 16px;
+	font-size: 18px;
 }
 
 ul.tags {
@@ -275,16 +327,20 @@ ul.tags {
 	padding: 3px;
 }
 
-.profile-pic {
+img.profile-pic {
 	height: 100%;
 	width: 100%;
-	margin: auto;
+	margin: 0 auto;
+	position: absolute;
+	transform: translate(0, -25%);
+	top: 50%;
 }
 
 .carousel {
 	height: 50%;
 	width: 65%;
 	float: left;
+	position: relative;
 }
 
 .carousel-inner {
@@ -316,6 +372,10 @@ ul.tags {
 
 .rev-info {
 	text-align: center;
+}
+
+ul.review-items {
+	padding: 20px;
 }
 
 /* Right Pane (Bus Show) */

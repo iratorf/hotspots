@@ -37,19 +37,18 @@
 		<div class="show-info">
 			<div class="row">
 				<div class="col-xs-7">
-					<h4><%= business.escape("name") %>
+					<h3><%= business.escape("name") %>
 						<% for(var i = 0; i < business.escape('price_range'); i++) { %>
 						<span class="glyphicon glyphicon-usd"></span>
-					<%}%></h4>
+					<%}%></h3>
 					<h4 class="rating">
 						<% if (business.rating() === "No Reviews") { %>
 							<h5> No Reviews </h5>
 						<% } else { %>
 							<% if (this.model.reviews() && this.model.reviews().length >0) {%>
-							<% for(var i = 0; i < business.rating(); i++) {%>
+							<% for(var i = 0; i < this.model.rating(); i++) {%>
 								<span class="glyphicon glyphicon-star"></span>
 						<% } %>
-							(<%= numReviews %>)
 							<% }} %>
 					</h4>
 					<div class="tags">

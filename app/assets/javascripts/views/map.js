@@ -17,11 +17,13 @@ Hotspots.Views.Map = Backbone.View.extend({
 			business: this.model
 		});
 		this.$el.html(renderedContent);
-		if (this.collection && this.collection.length > 1) {
+
+		if (this.collection && this.collection.length >= 1) {
 	    this.mapAll();
 		} else if (this.model) {
 			this.mapOne();
 		}
+
 		return this;
 	},
 	
@@ -92,12 +94,12 @@ Hotspots.Views.Map = Backbone.View.extend({
 				this.model.escape('latitude'),
 				this.model.escape('longitude')
 			), zoom: 14 };
-    var map = new google.maps.Map(this.$('#map-canvas')[0], mapOptions);
+    var map = this.setMap(this.$('#map-canvas')[0], mapOptions);
 		var latLng = new google.maps.LatLng(
 			this.model.escape('latitude'),
 			this.model.escape('longitude')
-		)
-		new google.maps.Marker({ position: latLng, map: map });	
+		);
+		var marker = this.normalColor(latLng);
 	},
 	
 	setBounds: function (markers, map) {

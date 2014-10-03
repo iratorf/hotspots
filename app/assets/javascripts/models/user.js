@@ -1,3 +1,3 @@
 Hotspots.Models.User = Backbone.Model.extend({
-	urlRoot: "users/"
+	urlRoot: "users/:id"
 })

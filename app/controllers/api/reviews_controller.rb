@@ -10,7 +10,7 @@ module Api
       @review = current_user.reviews.new(review_params)
     
       if @review.save
-        render json: @review
+        render json: @review, include: [:user]
       else
         render json: @review.errors.full_messages, status: :unprocessable_entity
       end

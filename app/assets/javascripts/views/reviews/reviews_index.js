@@ -3,7 +3,7 @@ Hotspots.Views.ReviewsIndex = Backbone.CompositeView.extend({
 	
 	initialize: function () {
 		this.listenTo(this.collection, "add", this.addReview)
-		this.listenTo(this.collection, 'sync remove', this.render)
+		this.listenTo(this.collection, 'sync remove add', this.render)
 	},
 	
 	addReview: function (review){
