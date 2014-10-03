@@ -16,7 +16,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 gem 'newrelic_rpm'
 gem 'geocoder'
-gem 'thin'
+# gem 'thin'
 
 group :development do
   gem 'better_errors'
