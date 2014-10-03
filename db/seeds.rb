@@ -126,10 +126,10 @@ end
   end
 end
 
-120.times do |n|
+180.times do |n|
   Review.create(
   body: REVIEWS.sample,
-  business_id: rand(1..60),
+  business_id: rand(1..90),
   score: rand(1..5),
   user_id: rand(1..5)
   )
