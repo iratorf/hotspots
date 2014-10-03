@@ -5,7 +5,8 @@ Hotspots.Views.ReviewNew = Backbone.View.extend({
 	
 	events: {
 		"submit #new-review": "handleSubmit",
-		"click button.review": "handleSubmit"
+		"click button.review": "handleSubmit",
+		"click button.ride": "handleRide"
 		
 	},
 	
@@ -36,6 +37,11 @@ Hotspots.Views.ReviewNew = Backbone.View.extend({
 				that.model.reviews().add(newReview);
 			} 
 		})
+	},
+	
+	handleRide: function (event) {
+		var comp = $(event.currentTarget).val();
+		alert("Your " + comp + " driver is on the way!");
 	},
 	
 	render: function () {
