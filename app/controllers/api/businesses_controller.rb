@@ -20,13 +20,15 @@ module Api
       if params[:distance]
         distance = params[:distance].sort[-1]
         
-        businesses = businesses.near(
-          [request.location.latitude, request.location.longitude],
-          distance)
+        if request.location.latitude != 0 
+          businesses = businesses.near(
+            [request.location.latitude, request.location.longitude],
+            distance)
+        else
+          businesses = businesses.near([37.791209, -122.415762], distance)
+        end
 #         LS
 #         businesses = businesses.near([33.984631, -118.276062], distance)
-        # SF
-        # businesses = businesses.near([37.791209, -122.415762], distance)
       end
       @businesses = businesses
 
