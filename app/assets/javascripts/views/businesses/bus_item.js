@@ -8,12 +8,12 @@ Hotspots.Views.BusItem = Backbone.View.extend({
 	
 	tagName: "li",
 	
-	className: "bus-item pull-left",
+	className: "bus-item pull-left grow",
 	
 	events: {
 		"click a": "handleRedirect",
-		"mouseover a": "greenIcon",
-		"mouseout a": "redIcon"
+		"mouseover img": "greenIcon",
+		"mouseout img": "redIcon"
 	},
 	
 	render: function () {
@@ -48,5 +48,6 @@ Hotspots.Views.BusItem = Backbone.View.extend({
 		var mark = markers[idx];
 		mark.setMap(null);
 		this.mapView.normalColor(mark.position);
+		console.log(mark.position);
 	}
 });
